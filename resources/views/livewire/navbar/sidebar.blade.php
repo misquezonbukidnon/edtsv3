@@ -236,7 +236,7 @@
     </div>
 
     <main class="flex-1 my-5">
-      <livewire:track-document.find-record.find-record-form />
+      <livewire:dashboard.dashboard />
     </main>
   </div>
 </div>

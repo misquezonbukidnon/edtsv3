@@ -343,14 +343,16 @@
 
             <section aria-labelledby="timeline-title" class="lg:col-start-3 lg:col-span-1">
                 <div class="bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
-                    <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Activity Log</h2>
+                    <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Recent Activity</h2>
 
                     <!-- Activity Feed -->
                     <div class="mt-6 flow-root">
                         <ul role="list" class="divide-y divide-gray-200">
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+                                    <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
+                                        <span class="text-sm font-medium leading-none text-white">MACCO</span>
+                                    </span>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class="text-sm font-medium">Ivan Nacional</h3>
@@ -362,7 +364,9 @@
                             </li>
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+                                    <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
+                                        <span class="text-sm font-medium leading-none text-white">GSO</span>
+                                    </span>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class="text-sm font-medium">Ivan Nacional</h3>
@@ -374,7 +378,9 @@
                             </li>
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+                                    <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
+                                        <span class="text-sm font-medium leading-none text-white">MIS</span>
+                                    </span>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class="text-sm font-medium">Ivan Nacional</h3>
@@ -387,7 +393,9 @@
 
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+                                    <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
+                                        <span class="text-sm font-medium leading-none text-white">MMO</span>
+                                    </span>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class="text-sm font-medium">Ivan Nacional</h3>
@@ -409,7 +417,3 @@
         </div>
     </main>
 </div>
-
-
-
-
