@@ -21,7 +21,8 @@
                                     13
                                 </dd>
                             </div>
-                            <div class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
+                            <div
+                                class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
                                 <dt class="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">
                                     Cancelled
                                 </dt>
@@ -56,16 +57,20 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Documents
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     In Progress
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Cancelled
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col"
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Completed
                                 </th>
 
@@ -74,7 +79,8 @@
                         <tbody>
                             <!-- Odd row -->
                             <tr class="bg-white">
-                                <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                <td
+                                    class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                     Purchase Request
                                 </td>
                                 <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
@@ -89,7 +95,8 @@
                             </tr>
 
                             <tr class="bg-white">
-                                <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                <td
+                                    class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                     Purchase Order
                                 </td>
                                 <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
@@ -104,7 +111,8 @@
                             </tr>
 
                             <tr class="bg-white">
-                                <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                <td
+                                    class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                     Voucher
                                 </td>
                                 <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
@@ -127,7 +135,8 @@
 </div>
 <div>
     <main class="py-10">
-        <div class="mt-8 max-w-7xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
+        <div
+            class="mt-8 max-w-7xl mx-auto grid grid-cols-1 gap-6 sm:px-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
             <div class="space-y-6 lg:col-start-1 lg:col-span-2">
                 <!-- Description list-->
                 <section aria-labelledby="applicant-information-title">
@@ -148,19 +157,24 @@
                                         <table class="min-w-full divide-y divide-gray-200">
                                             <thead class="bg-gray-50">
                                                 <tr>
-                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         Offices
                                                     </th>
-                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         PR
                                                     </th>
-                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         PO
                                                     </th>
-                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         Voucher
                                                     </th>
-                                                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                         Total
                                                     </th>
                                                 </tr>
@@ -168,164 +182,209 @@
                                             <tbody>
                                                 <!-- Odd row -->
                                                 <tr class="bg-gray-50">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                                         MBO
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
                                                 </tr>
 
                                                 <!-- Even row -->
                                                 <tr class="bg-gray-50">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                                         MMO
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-gray-50">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                                         BAC
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-gray-50">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                                         Procurement
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-gray-50">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                                         Supplier
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-gray-50">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                                         GSO
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-gray-50">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                                         MACCO
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-gray-50">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-gray-900">
                                                         MTO
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-gray-500">
                                                         0
                                                     </td>
                                                 </tr>
 
                                                 <tr class="bg-gray-500">
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-white">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm font-medium text-white">
                                                         Total
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-white">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-white">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-white">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-white">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-white">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-white">
                                                         0
                                                     </td>
-                                                    <td class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-white">
+                                                    <td
+                                                        class="px-6 py-4 cursor-pointer whitespace-nowrap text-sm text-white">
                                                         0
                                                     </td>
                                                 </tr>
@@ -350,57 +409,70 @@
                         <ul role="list" class="divide-y divide-gray-200">
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+                                    <img class="h-6 w-6 rounded-full"
+                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                        alt="">
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class="text-sm font-medium">Ivan Nacional</h3>
                                             <p class="text-sm text-gray-500">1h</p>
                                         </div>
-                                        <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+                                        <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to
+                                            production</p>
                                     </div>
                                 </div>
                             </li>
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+                                    <img class="h-6 w-6 rounded-full"
+                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                        alt="">
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class="text-sm font-medium">Ivan Nacional</h3>
                                             <p class="text-sm text-gray-500">1h</p>
                                         </div>
-                                        <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+                                        <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to
+                                            production</p>
                                     </div>
                                 </div>
                             </li>
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+                                    <img class="h-6 w-6 rounded-full"
+                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                        alt="">
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class="text-sm font-medium">Ivan Nacional</h3>
                                             <p class="text-sm text-gray-500">1h</p>
                                         </div>
-                                        <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+                                        <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to
+                                            production</p>
                                     </div>
                                 </div>
                             </li>
 
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <img class="h-6 w-6 rounded-full" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80" alt="">
+                                    <img class="h-6 w-6 rounded-full"
+                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
+                                        alt="">
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
                                             <h3 class="text-sm font-medium">Ivan Nacional</h3>
                                             <p class="text-sm text-gray-500">1h</p>
                                         </div>
-                                        <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to production</p>
+                                        <p class="text-sm text-gray-500">Deployed Workcation (2d89f0c8 in master) to
+                                            production</p>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="mt-6 flex flex-col justify-stretch">
-                        <button type="button" class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        <button type="button"
+                            class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             Scroll down to view more logs.
                         </button>
                     </div>
@@ -409,7 +481,3 @@
         </div>
     </main>
 </div>
-
-
-
-
