@@ -11,6 +11,11 @@ use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Livewire\Document\CreateDocument;
+use App\Http\Livewire\Endorsement\CreateEndorsement;
+use App\Http\Livewire\Endorsement\CreateEndorsementForm;
+use App\Http\Livewire\TrackDocument\FindRecordForm;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -58,4 +63,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', Dashboard::class)->name('home');
     Route::get('/create/document', CreateDocument::class)->name('create-document');
+    Route::get('/create/endorsement', CreateEndorsement::class)->name('endorsement');
+    Route::get('/create/create-endorsement', CreateEndorsementForm::class)->name('endorsementform');
+    Route::get('/find/record', FindRecordForm::class)->name('findrecordform');
+   
+  
 });
+
