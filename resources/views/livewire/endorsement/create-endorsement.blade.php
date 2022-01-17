@@ -19,7 +19,7 @@
                     <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
                     </svg>
-                    <a href="#" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Endorsement</a>
+                    <a href="{{ route('endorsement') }}" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Endorsement</a>
                 </div>
             </li>
         </ol>
@@ -89,7 +89,7 @@
                                                 Not Endorsed
                                             </td>
                                             <td class="px-6 flex py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ route('endorsementform') }}" class="text-indigo-600 mr-2 hover:text-indigo-900">
+                                                <a href="/endorsement/create/69" class="text-indigo-600 mr-2 hover:text-indigo-900">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
                                                     </svg>
@@ -101,8 +101,6 @@
                                                 </a>
                                             </td>
                                         </tr>
-
-
                                     </tbody>
                                 </table>
                             </div>

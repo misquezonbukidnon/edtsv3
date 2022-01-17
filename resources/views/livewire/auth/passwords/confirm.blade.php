@@ -2,9 +2,10 @@
 
 <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <a href="{{ route('home') }}">
-            <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
+        <a class="w-100 flex justify-center" href="{{ route('home') }}">
+            <img class="h-20 " src="{{ asset('img/SEAL.png') }}" alt="EDTS">
         </a>
+        
 
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
             Confirm your password
@@ -27,7 +28,7 @@
                     </div>
 
                     @error('password')
-                        <p class="mt-2 text-sm text-red-600" id="password-error">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600" id="password-error">{{ $message }}</p>
                     @enderror
                 </div>
 

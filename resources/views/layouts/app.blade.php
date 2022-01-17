@@ -71,8 +71,8 @@
                 </button>
             </div>
 
-            <div class="flex-shrink-0 justify-center flex items-center px-4">
-                <img class="h-10 w-auto" src="{{ asset('img/EDTS.png') }}" alt="EDTS">
+            <div class="flex justify-start items-center flex-shrink-0 px-4">
+                <img class="h-16 w-auto" src="{{ asset('img/EDTS.png') }}" alt="EDTS">
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
                 <nav class="px-2 space-y-1">
@@ -99,7 +99,7 @@
                         Documents
                     </a>
 
-                    <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                    <a href="{{ route('reports') }}" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
                         <!-- Heroicon name: outline/chart-bar -->
                         <svg class="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -119,8 +119,8 @@
     <div class="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
         <!-- Sidebar component, swap this element with another sidebar if you like -->
         <div class="flex flex-col flex-grow border-r border-gray-200 pt-5 bg-white overflow-y-auto">
-            <div class="flex justify-center items-center flex-shrink-0 px-4">
-                <img class="h-10 w-auto" src="{{ asset('img/EDTS.png') }}" alt="EDTS">
+            <div class="flex justify-start items-center flex-shrink-0 px-4">
+                <img class="h-16 w-auto" src="{{ asset('img/EDTS.png') }}" alt="EDTS">
             </div>
             <div class="mt-5 flex-grow flex flex-col">
                 <nav class="flex-1 px-2 pb-4 space-y-1">
@@ -154,7 +154,7 @@
                         Endorsement
                     </a>
 
-                    <a href="{{ route('findrecordform') }}" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                    <a href="{{ route('findrecord') }}" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: outline/inbox -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
@@ -162,7 +162,7 @@
                         Track Document
                     </a>
 
-                    <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                    <a href="{{ route('reports') }}" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: outline/chart-bar -->
                         <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -237,7 +237,6 @@
                 </div>
             </div>
         </div>
-
         <main class="flex-1 my-5">
             @yield('content')
 

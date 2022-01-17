@@ -352,8 +352,8 @@
                         <ul role="list" class="divide-y divide-gray-200">
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
-                                        <span class="text-sm font-medium leading-none text-white">MACCO</span>
+                                    <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
+                                        <span class="text-sm font-medium leading-none text-white">IN</span>
                                     </span>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
@@ -366,8 +366,8 @@
                             </li>
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
-                                        <span class="text-sm font-medium leading-none text-white">GSO</span>
+                                    <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
+                                        <span class="text-sm font-medium leading-none text-white">IN</span>
                                     </span>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
@@ -380,8 +380,8 @@
                             </li>
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
-                                        <span class="text-sm font-medium leading-none text-white">MIS</span>
+                                    <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
+                                        <span class="text-sm font-medium leading-none text-white">IN</span>
                                     </span>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">
@@ -395,8 +395,8 @@
 
                             <li class="py-4">
                                 <div class="flex space-x-3">
-                                    <span class="inline-flex items-center justify-center h-14 w-14 rounded-full bg-gray-500">
-                                        <span class="text-sm font-medium leading-none text-white">MMO</span>
+                                    <span class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-500">
+                                        <span class="text-sm font-medium leading-none text-white">IN</span>
                                     </span>
                                     <div class="flex-1 space-y-1">
                                         <div class="flex items-center justify-between">

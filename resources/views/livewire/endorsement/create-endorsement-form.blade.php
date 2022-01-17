@@ -20,7 +20,7 @@
                     <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
                     </svg>
-                    <a href="endorsement" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Endorsement</a>
+                    <a href="{{ route('endorsement') }}" class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Endorsement</a>
                 </div>
             </li>
 
@@ -212,7 +212,6 @@
                         <!-- Selected: "text-gray-900 bg-gray-100 hover:bg-gray-200", Not Selected: "text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100" -->
                         <button id="tabs-1-tab-1" class="text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md" aria-controls="tabs-1-panel-1" role="tab" type="button">Write</button>
                         <!-- Selected: "text-gray-900 bg-gray-100 hover:bg-gray-200", Not Selected: "text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100" -->
-                        <button id="tabs-1-tab-2" class="text-gray-500 hover:text-gray-900 bg-white hover:bg-gray-100 ml-2 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md" aria-controls="tabs-1-panel-2" role="tab" type="button">Preview</button>
 
                         <!-- These buttons are here simply as examples and don't actually do anything. -->
                         <div class="ml-auto flex items-center space-x-5">

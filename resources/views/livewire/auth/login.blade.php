@@ -1,21 +1,22 @@
 @section('title', 'Sign in to your account')
 
 <div>
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <a href="{{ route('home') }}">
-            <x-logo class="w-auto h-16 mx-auto text-indigo-600" />
+    <div class="sm:mx-auto  sm:w-full sm:max-w-md">
+        <a class="w-100 mt-n5  
+         flex justify-center" href="{{ route('home') }}">
+            <img class="h-24 " src="{{ asset('img/SEAL.png') }}" alt="EDTS">
         </a>
 
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
             EDTS
         </h2>
         @if (Route::has('register'))
-            <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
-                Or
-                <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
-                    create a new account
-                </a>
-            </p>
+        <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
+            Or
+            <a href="{{ route('register') }}" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                create a new account
+            </a>
+        </p>
         @endif
     </div>
 
@@ -32,7 +33,7 @@
                     </div>
 
                     @error('email')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
@@ -46,7 +47,7 @@
                     </div>
 
                     @error('password')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
 
