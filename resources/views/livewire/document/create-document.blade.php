@@ -31,7 +31,7 @@
     </nav>
 </div>
 
-<div class="max-w-7xl mb-16 mt-5 mx-auto sm:px-6 lg:px-8" x-data="{ count: 0 }">
+<div x-cloak class="max-w-7xl mb-16 mt-5 mx-auto sm:px-6 lg:px-8">
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
         <div class="px-4 py-5 sm:px-6">
@@ -456,7 +456,7 @@
 
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="flex flex-col " x-data="{ QR: false }">
+    <div class="flex flex-col ">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <divclass="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">

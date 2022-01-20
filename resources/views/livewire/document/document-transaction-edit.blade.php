@@ -159,7 +159,7 @@
         </div>
         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
             <div class="px-4 py-5 bg-white sm:p-6">
-                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6" x-show="count === 1">
+                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                     <div class="sm:col-span-6">
                         <label for="office" class="block text-sm font-medium text-gray-700">
                             Office
@@ -260,7 +260,7 @@
         </div>
         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
             <div class="px-4 py-5 bg-white sm:p-6">
-                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6" x-show="count === 2">
+                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
 
                     <div class="sm:col-span-2">
                         <div>
@@ -386,7 +386,7 @@
         </div>
         <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
             <div class="px-4 py-5 bg-white sm:p-6">
-                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6" x-show="count === 3">
+                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                     <div class="sm:col-span-6">
                         <label for="voucherreferenceno" class="block text-sm font-medium text-gray-700">
                             Voucher Reference No.
