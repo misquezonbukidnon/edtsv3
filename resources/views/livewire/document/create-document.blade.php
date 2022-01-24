@@ -129,7 +129,7 @@
                                         Voucher Details
                                     </p>
                                 </div>
-                                <!-- form here -->
+                                <!----------------------------------------------------------------- form for Purchase Request here ------------------------------------------------------>
                                 <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6" x-show="count === 1">
                                     <div class="sm:col-span-6">
                                         <label for="office" class="block text-sm font-medium text-gray-700">
@@ -146,19 +146,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="sm:col-span-4">
-                                        <div>
-                                            <p class="mt-1 text-sm text-gray-500">
-                                                Reference No.
-                                            </p>
-                                        </div>
-
-                                        <div class="mt-1">
-                                            <input type="text" name="last-name" id="last-name"
-                                                autocomplete="family-name"
-                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                        </div>
-                                    </div>
 
                                     <div class="sm:col-span-2">
                                         <div>
@@ -175,6 +162,21 @@
                                                 <option> Trust Fund</option>
                                                 <option> Special Education Fund</option>
                                             </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="sm:col-span-4">
+                                        <div>
+                                            <p class="mt-1 text-sm text-gray-500">
+                                                Reference No.
+                                            </p>
+                                        </div>
+
+                                        <div class="mt-1">
+                                            <input type="text" name="last-name" id="last-name"
+                                                autocomplete="family-name"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                         </div>
                                     </div>
 
@@ -217,13 +219,13 @@
                                 </div>
 
                                 <!-- end -->
-                                <!-- form here -->
+                                <!----------------------------------------------------------------- form for Purchase Order here ------------------------------------------------------>
                                 <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6" x-show="count === 2">
 
                                     <div class="sm:col-span-2">
                                         <div>
                                             <p class="mt-1 text-sm text-gray-500">
-                                                Select Fund Type.
+                                                Purchase Order Reference No.
                                             </p>
                                         </div>
 
@@ -248,6 +250,41 @@
                                                 class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                                         </div>
                                     </div>
+
+
+
+                                    <div class="sm:col-span-2">
+                                        <div>
+                                            <p class="mt-1 text-sm text-gray-500">
+                                                Select Fund Type.
+                                            </p>
+                                        </div>
+
+                                        <div class="mt-1">
+                                            <select id="Fund" name="Fund" autocomplete="Fund-name"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <option>Select Fund</option>
+                                                <option> General Fund</option>
+                                                <option> Trust Fund</option>
+                                                <option> Special Education Fund</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="sm:col-span-4">
+                                        <div>
+                                            <p class="mt-1 text-sm text-gray-500">
+                                                Reference No.
+                                            </p>
+                                        </div>
+
+                                        <div class="mt-1">
+                                            <input type="text" name="last-name" id="last-name"
+                                                autocomplete="family-name"
+                                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                        </div>
+                                    </div>
+
 
                                     <div class="sm:col-span-6">
                                         <label for="office" class="block text-sm font-medium text-gray-700">
@@ -330,7 +367,7 @@
                                 <!-- end -->
 
 
-                                <!-- form here -->
+                                <!----------------------------------------------------------------- form for Voucher ------------------------------------------------------>
                                 <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6" x-show="count === 3">
                                     <div class="sm:col-span-6">
                                         <label for="voucherreferenceno" class="block text-sm font-medium text-gray-700">

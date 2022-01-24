@@ -27,12 +27,14 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        @powerGridStyles
     </head>
 
     <body class="h-full">
         @yield('body')
 
         @livewireScripts
+        @powerGridStyles
     </body>
 
 </html>
