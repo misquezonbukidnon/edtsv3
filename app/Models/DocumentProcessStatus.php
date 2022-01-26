@@ -2,21 +2,19 @@
 
 namespace App\Models;
 
-use App\Models\User;
+use App\Models\Document;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Avatar extends Model
+class DocumentProcessStatus extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'user_id',
-        'path'
+        'name',
     ];
 
-    public function user()
+    public function document()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->hasMany(Document::class);
     }
 }

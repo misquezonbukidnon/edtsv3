@@ -16,64 +16,64 @@ class OfficeSeeder extends Seeder
     {
         DB::table('offices')->insert([
             [
-                'name' => 'MMO - Personal Staff',
-                'abbr' => 'PS'
+                'name' => 'Personal Staff',
+                'abbr' => 'MMO-PS'
             ],
             [
-                'name' => 'MMO - Management Information System Division',
-                'abbr' => 'MIS'
+                'name' => 'Management Information System Division',
+                'abbr' => 'MMO-MIS'
             ],
             [
                 'name' => 'Municipal Disaster Risk Reduction and Management Office',
                 'abbr' => 'MDRRMO'
             ],
             [
-                'name' => 'MMO - Public Affairs, Information and Assistance Division',
-                'abbr' => 'PAIAD'
+                'name' => 'Public Affairs, Information and Assistance Division',
+                'abbr' => 'MMO-PAIAD'
             ],
             [
-                'name' => 'MMO - Bids and Award Committee',
-                'abbr' => 'BAC'
+                'name' => 'Bids and Award Committee',
+                'abbr' => 'MMO-BAC'
             ],
             [
-                'name' => 'MMO - Procurement Office',
-                'abbr' => 'PO'
+                'name' => 'Purchasing Office',
+                'abbr' => 'MMO-PO'
             ],
             [
-                'name' => 'MMO - Livelihood Division',
-                'abbr' => 'LD'
+                'name' => 'Livelihood Division',
+                'abbr' => 'MMO-LD'
             ],
             [
-                'name' => 'MMO - Permits and Licenses Division',
-                'abbr' => 'BPLO'
+                'name' => 'Permits and Licenses Division',
+                'abbr' => 'MMO-BPLO'
             ],
             [
-                'name' => 'MMO - General Services Office',
-                'abbr' => 'GSO'
+                'name' => 'General Services Office',
+                'abbr' => 'MMO-GSO'
             ],
             [
-                'name' => 'MMO - Population Development Division',
-                'abbr' => 'PopDev'
+                'name' => 'Population Development Division',
+                'abbr' => 'MMO-PopDev'
             ],
             [
-                'name' => 'MMO - Nutrition Division',
-                'abbr' => 'ND'
+                'name' => 'Nutrition Division',
+                'abbr' => 'MMO-ND'
             ],
             [
                 'name' => 'Municipal Enterprise Management Office',
                 'abbr' => 'MEMO'
             ],
             [
-                'name' => 'MMO - Barangay Affairs Division',
-                'abbr' => 'BA'
+                'name' => 'Barangay Affairs Division',
+                'abbr' => 'MMO-BA'
             ],
             [
-                'name' => 'MMO - Human Resource Management Office',
-                'abbr' => 'HRMO'
+                'name' => 'Human Resource Management Office',
+                'abbr' => 'MMO-HRMO'
             ],
             [
-                'name' => 'MMO - Civil Security Unit',
-                'abbr' => 'CSU'
+                'name' => 'Civil Security Unit',
+                'abbr' => 'MMO-CSU'
             ],
             [
                 'name' => 'Office of the Sangguniang Bayan',

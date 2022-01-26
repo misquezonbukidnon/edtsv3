@@ -3,8 +3,15 @@
 namespace App\Models;
 
 use App\Models\Role;
+use App\Models\Event;
 use App\Models\Avatar;
 use App\Models\Office;
+use App\Models\Document;
+use App\Models\Endorser;
+use App\Models\Endorsement;
+use App\Models\EventUpdate;
+use App\Models\TimelineUpdate;
+use App\Models\TimelineComment;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -28,6 +35,7 @@ class User extends Authenticatable
         'firstname',
         'middlename',
         'lastname',
+        'initial',
         'contact',
         'email',
         'password',
@@ -54,7 +62,12 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'role_id');
+        return $this->belongsToMany(Role::class, 'role_id');
+    }
+
+    public function office()
+    {
+        return $this->belongsToMany(Office::class, 'office_id');
     }
 
     public function avatar()
@@ -62,8 +75,33 @@ class User extends Authenticatable
         return $this->hasOne(Avatar::class);
     }
 
-    public function office()
+    public function document()
     {
-        return $this->belongsTo(Office::class);
+        return $this->hasMany(Document::class);
+    }
+
+    public function endorser()
+    {
+        return $this->hasMany(Endorser::class);
+    }
+
+    public function event()
+    {
+        return $this->hasMany(Event::class);
+    }
+
+    public function endorsement()
+    {
+        return $this->hasMany(Endorsement::class);
+    }
+
+    public function timelineUpdate()
+    {
+        return $this->hasMany(TimelineUpdate::class);
+    }
+
+    public function timelineComment()
+    {
+        return $this->hasMany(TimelineComment::class);
     }
 }

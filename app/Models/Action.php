@@ -2,21 +2,19 @@
 
 namespace App\Models;
 
-use App\Models\User;
+use App\Models\Endorsement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Avatar extends Model
+class Action extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'user_id',
-        'path'
+        'name',
     ];
 
-    public function user()
+    public function endorsement()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->hasMany(Endorsement::class);
     }
 }

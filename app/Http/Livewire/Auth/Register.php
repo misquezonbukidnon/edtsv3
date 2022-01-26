@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire\Auth;
 
-use App\Models\Office;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Office;
 use Livewire\Component;
+use App\Models\Endorser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
@@ -59,16 +60,33 @@ class Register extends Component
             'password' => ['required', 'min:8', 'same:passwordConfirmation'],
         ]);
 
-        $user = User::create([
-            'role_id' => $this->role_id,
-            'office_id' => $this->office_id,
-            'firstname' => $this->firstname,
-            'middlename' => $this->middlename,
-            'lastname' => $this->lastname,
-            'contact' => $this->contact,
-            'email' => $this->email,
-            'password' => Hash::make($this->password),
-        ]);
+        // If role id is equal to endorser, create another record for endorser table.
+        if ($this->role_id == 2) {
+            $user = User::create([
+                'role_id' => $this->role_id,
+                'office_id' => $this->office_id,
+                'firstname' => $this->firstname,
+                'middlename' => $this->middlename,
+                'lastname' => $this->lastname,
+                'contact' => $this->contact,
+                'email' => $this->email,
+                'password' => Hash::make($this->password),
+            ]);
+            $endorser = Endorser::create([
+                'user_id' => $user->id,
+            ]);
+        } else {
+            $user = User::create([
+                'role_id' => $this->role_id,
+                'office_id' => $this->office_id,
+                'firstname' => $this->firstname,
+                'middlename' => $this->middlename,
+                'lastname' => $this->lastname,
+                'contact' => $this->contact,
+                'email' => $this->email,
+                'password' => Hash::make($this->password),
+            ]);
+        }
 
         event(new Registered($user));
 
