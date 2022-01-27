@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DocumentProcessStatusSeeder extends Seeder
 {
@@ -13,6 +14,13 @@ class DocumentProcessStatusSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('document_process_statuses')->insert([
+            [
+                'name' => 'Due'
+            ],
+            [
+                'name' => 'Overdue'
+            ]
+        ]);
     }
 }

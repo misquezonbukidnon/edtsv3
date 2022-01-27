@@ -11,7 +11,7 @@ class ProcessType extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'abbr' 
+        'abbr'
     ];
 
     public function document()

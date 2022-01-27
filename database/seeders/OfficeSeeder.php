@@ -151,10 +151,6 @@ class OfficeSeeder extends Seeder
                 'name' => 'Local School Board',
                 'abbr' => 'LSB'
             ],
-            [
-                'name' => 'Supplier',
-                'abbr' => 'SPLR'
-            ]
         ]);
     }
 }

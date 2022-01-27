@@ -36,6 +36,9 @@ class Register extends Component
     public $lastname = '';
 
     /** @var string */
+    public $initials = '';
+
+    /** @var string */
     public $contact = '';
 
     /** @var string */
@@ -56,6 +59,7 @@ class Register extends Component
             'office_id' => ['required'],
             'firstname' => ['required'],
             'lastname' => ['required'],
+            'initials' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'min:8', 'same:passwordConfirmation'],
         ]);
@@ -68,6 +72,7 @@ class Register extends Component
                 'firstname' => $this->firstname,
                 'middlename' => $this->middlename,
                 'lastname' => $this->lastname,
+                'initials' => $this->initials,
                 'contact' => $this->contact,
                 'email' => $this->email,
                 'password' => Hash::make($this->password),
@@ -82,6 +87,7 @@ class Register extends Component
                 'firstname' => $this->firstname,
                 'middlename' => $this->middlename,
                 'lastname' => $this->lastname,
+                'initials' => $this->initials,
                 'contact' => $this->contact,
                 'email' => $this->email,
                 'password' => Hash::make($this->password),

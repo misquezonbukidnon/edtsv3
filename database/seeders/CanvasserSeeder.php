@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CanvasserSeeder extends Seeder
 {
@@ -13,6 +14,16 @@ class CanvasserSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('canvassers')->insert([
+            [
+                'name' => 'Joel Salonoy'
+            ],
+            [
+                'name' => 'Melvin Abaquita'
+            ],
+            [
+                'name' => 'Marilou Elemento'
+            ]
+        ]);
     }
 }

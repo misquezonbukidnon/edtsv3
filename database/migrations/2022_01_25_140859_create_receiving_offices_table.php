@@ -16,6 +16,7 @@ class CreateReceivingOfficesTable extends Migration
         Schema::create('receiving_offices', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('abbr');
             $table->timestamps();
         });
     }
