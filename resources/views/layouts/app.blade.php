@@ -25,9 +25,9 @@
   <body class="h-full">
   ```
 -->
-<div>
+<div x-data="{mobile: false}">
     <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-    <div class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
+    <div x-show="mobile" class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
         <!--
       Off-canvas menu overlay, show/hide based on off-canvas menu state.
 
@@ -38,7 +38,7 @@
         From: "opacity-100"
         To: "opacity-0"
     -->
-        <div class="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true"></div>
+        <div class="fixed inset-0 bg-gray-600 bg-opacity-75" x-show="mobile" aria-hidden="true"></div>
 
         <!--
       Off-canvas menu, show/hide based on off-canvas menu state.
@@ -50,19 +50,19 @@
         From: "translate-x-0"
         To: "-translate-x-full"
     -->
-        <div class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
+        <div x-show="mobile" class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
             <!--
-        Close button, show/hide based on off-canvas menu state.
+                        Close button, show/hide based on off-canvas menu state.
 
-        Entering: "ease-in-out duration-300"
-          From: "opacity-0"
-          To: "opacity-100"
-        Leaving: "ease-in-out duration-300"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
+                        Entering: "ease-in-out duration-300"
+                        From: "opacity-0"
+                        To: "opacity-100"
+                        Leaving: "ease-in-out duration-300"
+                        From: "opacity-100"
+                        To: "opacity-0"
+                    -->
             <div class="absolute top-0 right-0 -mr-12 pt-2">
-                <button type="button"
+                <button type="button" @click="mobile = ! mobile"
                     class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span class="sr-only">Close sidebar</span>
                     <!-- Heroicon name: outline/x -->
@@ -78,16 +78,16 @@
                 <img class="h-16 w-auto" src="{{ asset('img/EDTS.png') }}" alt="EDTS">
             </div>
             <div class="mt-5 flex-1 h-0 overflow-y-auto">
-                <nav class="px-2 space-y-1">
+                <nav class="flex-1 px-2 pb-4 space-y-1">
                     <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
                     <a href="{{ route('home') }}"
-                        class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                        class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!--
-              Heroicon name: outline/home
+                                Heroicon name: outline/home
 
-              Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"
-            -->
-                        <svg class="text-gray-500 mr-4 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                                Current: "text-gray-500", Default: "text-gray-400 group-hover:text-gray-500"
+                                -->
+                        <svg class="text-gray-500 mr-3 flex-shrink-0 h-6 w-6" xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -96,11 +96,10 @@
                     </a>
 
 
-
                     <a href="{{ route('create-document') }}"
-                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: outline/inbox -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6"
+                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -109,10 +108,35 @@
                         Documents
                     </a>
 
+                    <a href="{{ route('endorsement') }}"
+                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <!-- Heroicon name: outline/inbox -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Endorsement
+                    </a>
+
+                    <a href="{{ route('findrecord') }}"
+                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        <!-- Heroicon name: outline/inbox -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                        </svg>
+                        Track Document
+                    </a>
+
                     <a href="{{ route('reports') }}"
-                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
+                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!-- Heroicon name: outline/chart-bar -->
-                        <svg class="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6"
+                        <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -209,7 +233,7 @@
     </div>
     <div class="md:pl-64 flex flex-col flex-1">
         <div class="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow">
-            <button type="button"
+            <button type="button" @click="mobile = ! mobile"
                 class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden">
                 <span class="sr-only">Open sidebar</span>
                 <!-- Heroicon name: outline/menu-alt-2 -->
