@@ -357,8 +357,6 @@
                             </section>
                         </div>
                     </li>
-
-
                 </ul>
             </div>
 

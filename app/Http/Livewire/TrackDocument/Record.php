@@ -4,10 +4,10 @@ namespace App\Http\Livewire\TrackDocument;
 
 use Livewire\Component;
 
-class FindRecord extends Component
+class Record extends Component
 {
     public function render()
     {
-        return view('livewire.track-document.find-record');
+        return view('livewire.track-document.record');
     }
 }

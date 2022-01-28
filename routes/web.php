@@ -10,12 +10,12 @@ use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\EmailVerificationController;
-use App\Http\Livewire\Document\CreateDocument;
-use App\Http\Livewire\Document\DocumentTransactionEdit;
-use App\Http\Livewire\Endorsement\CreateEndorsement;
-use App\Http\Livewire\Endorsement\CreateEndorsementForm;
-use App\Http\Livewire\TrackDocument\FindRecord;
-use App\Http\Livewire\TrackDocument\FindRecordForm;
+use App\Http\Livewire\Document\DocumentCreate;
+use App\Http\Livewire\Document\DocumentEdit;
+use App\Http\Livewire\Endorsement\Endorsement;
+use App\Http\Livewire\Endorsement\EndorsementCreate;
+use App\Http\Livewire\TrackDocument\Record;
+use App\Http\Livewire\TrackDocument\RecordFind;
 use App\Http\Livewire\Report\GenerateReport;
 
 /*
@@ -63,11 +63,11 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/', Dashboard::class)->name('home');
-    Route::get('/document/create', CreateDocument::class)->name('create-document');
-    Route::get('/document/edit/{id}', DocumentTransactionEdit::class)->name('edit-document');
-    Route::get('/endorsement', CreateEndorsement::class)->name('endorsement');
-    Route::get('/endorsement/create/{id}', CreateEndorsementForm::class)->name('endorsementform');
-    Route::get('/find/record', FindRecord::class)->name('findrecord');
-    Route::get('/find/record/{id}', FindRecordForm::class)->name('findrecordform');
+    Route::get('/document/create', DocumentCreate::class)->name('create-document');
+    Route::get('/document/edit/{id}', DocumentEdit::class)->name('edit-document');
+    Route::get('/endorsement', Endorsement::class)->name('endorsement');
+    Route::get('/endorsement/create/{id}', EndorsementCreate::class)->name('endorsementform');
+    Route::get('/find/record', Record::class)->name('findrecord');
+    Route::get('/find/record/{id}', RecordFind::class)->name('findrecordform');
     Route::get('/reports', GenerateReport::class)->name('reports');
 });

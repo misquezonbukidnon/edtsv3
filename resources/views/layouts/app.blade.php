@@ -25,9 +25,13 @@
   <body class="h-full">
   ```
 -->
-<div x-data="{mobile: false}">
+<div x-data="{mobile: false}" x-cloak>
     <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-    <div x-show="mobile" class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
+    <div x-show="mobile" Entering: "transition ease-out duration-100"
+        x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+        class="fixed inset-0 flex z-40 md:hidden" role="dialog" aria-modal="true">
         <!--
       Off-canvas menu overlay, show/hide based on off-canvas menu state.
 
@@ -50,7 +54,11 @@
         From: "translate-x-0"
         To: "-translate-x-full"
     -->
-        <div x-show="mobile" class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
+        <div x-show="mobile" Entering: "transition ease-out duration-100"
+            x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+            x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90"
+            class="relative flex-1 flex flex-col max-w-xs w-full pt-5 pb-4 bg-white">
             <!--
                         Close button, show/hide based on off-canvas menu state.
 
@@ -81,7 +89,7 @@
                 <nav class="flex-1 px-2 pb-4 space-y-1">
                     <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
                     <a href="{{ route('home') }}"
-                        class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        class=" text-gray-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!--
                                 Heroicon name: outline/home
 
@@ -164,7 +172,7 @@
                 <nav class="flex-1 px-2 pb-4 space-y-1">
                     <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
                     <a href="{{ route('home') }}"
-                        class="bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        class=" text-gray-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                         <!--
               Heroicon name: outline/home
 
@@ -310,7 +318,7 @@
                 </div>
             </div>
         </div>
-        <main x-data="{ QR: false ,count: 0}" class="flex-1 my-5">
+        <main x-data="{ QR: false ,count: 0}" class="flex-1 px-2 my-5">
             @yield('content')
 
             @isset($slot)
