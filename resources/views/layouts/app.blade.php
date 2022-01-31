@@ -318,7 +318,7 @@
                 </div>
             </div>
         </div>
-        <main x-data="{ QR: false ,count: 0}" class="flex-1 px-2 my-5">
+        <main x-data="{ QR: false }" class="flex-1 px-2 my-5">
             @yield('content')
 
             @isset($slot)
