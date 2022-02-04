@@ -1,5 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8" x-data="{filterEnable : false}">
 
     <nav class="flex my-5" aria-label="Breadcrumb">
         <ol role="list" class="bg-white rounded-md shadow px-6 flex space-x-4">
@@ -37,13 +37,13 @@
             </h3>
 
             <!-- Enabled: "bg-indigo-600", Not Enabled: "bg-gray-200" -->
-            <button type="button"
-                class="bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            <button type="button" @click="filterEnable = ! filterEnable"
+                :class="filterEnable ? 'bg-indigo-600 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500' : 'bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'"
                 role="switch" aria-checked="false" aria-labelledby="availability-label"
                 aria-describedby="availability-description">
                 <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
                 <span aria-hidden="true"
-                    class="translate-x-0 pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"></span>
+                    :class="filterEnable ? 'translate-x-5 pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200':'translate-x-0 pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200'"></span>
             </button>
 
         </div>
