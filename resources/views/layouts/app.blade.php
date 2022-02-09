@@ -25,7 +25,8 @@
   <body class="h-full">
   ```
 -->
-<div x-data="{mobile: false}" x-cloak>
+<div x-data="{mobile: false, Dashboard: false, Documents: false, Endorsement: false, TD: false, Reports: false, chat: false }"
+    x-cloak>
     <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
     <div x-show="mobile" Entering: "transition ease-out duration-100"
         x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
@@ -173,7 +174,7 @@
                 <nav class="flex-1 px-2 pb-4 space-y-1">
                     <!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
                     <a href="{{ route('home') }}"
-                        class=" text-gray-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        :class="Dashboard ? 'bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md' : 'text-gray-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md'">
                         <!--
               Heroicon name: outline/home
 
@@ -191,7 +192,7 @@
 
 
                     <a href="{{ route('create-document') }}"
-                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        :class="Documents ? 'bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md' : 'text-gray-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md'">
                         <!-- Heroicon name: outline/inbox -->
                         <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -203,7 +204,7 @@
                     </a>
 
                     <a href="{{ route('endorsement') }}"
-                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        :class="Endorsement ? 'bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md' : 'text-gray-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md'">
                         <!-- Heroicon name: outline/inbox -->
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6"
@@ -216,7 +217,7 @@
                     </a>
 
                     <a href="{{ route('findrecord') }}"
-                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                        :class="TD ? 'bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md' : 'text-gray-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md'">
                         <!-- Heroicon name: outline/inbox -->
                         <svg xmlns="http://www.w3.org/2000/svg"
                             class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6" fill="none"
@@ -227,8 +228,8 @@
                         Track Document
                     </a>
 
-                    <a href="{{ route('reports') }}"
-                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                    <a href="{{ route('reports') }}" @click="Reports = true"
+                        :class="Reports ? 'bg-gray-100 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md' : 'text-gray-600 group flex items-center px-2 py-2 text-sm font-medium rounded-md'">
                         <!-- Heroicon name: outline/chart-bar -->
                         <svg class="text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -274,14 +275,14 @@
                     </form>
                 </div>
                 <div class="ml-4 flex items-center md:ml-6">
-                    <button type="button"
+                    <button type="button" @click="chat = ! chat"
                         class="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <span class="sr-only">View notifications</span>
+                        <span class="sr-only">View Messages</span>
                         <!-- Heroicon name: outline/bell -->
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                         </svg>
                     </button>
 
@@ -321,6 +322,8 @@
                 </div>
             </div>
         </div>
+
+        <livewire:chat.messenger />
         <main x-data="{ QR: false }" class="flex-1 px-2 my-5">
             @yield('content')
 
