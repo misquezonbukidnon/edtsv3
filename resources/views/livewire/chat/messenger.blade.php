@@ -53,7 +53,9 @@
                                                     alt="">
                                                 <div class="flex-1 space-y-1">
                                                     <div class="flex items-center justify-between">
-                                                        <h3 class="text-sm font-medium">Ivan Walton</h3>
+                                                        <h3 class="text-sm font-medium flex">Ivan Nacion <p
+                                                                class="text-sm ml-2 text-gray-500">Just Now</p>
+                                                        </h3>
                                                         <span
                                                             class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-500">
                                                             <span
@@ -71,7 +73,10 @@
                                                     alt="">
                                                 <div class="flex-1 space-y-1">
                                                     <div class="flex items-center justify-between">
-                                                        <h3 class="text-sm font-medium">Lindsay Walton</h3>
+                                                        <h3 class="text-sm font-medium flex">Lindsay Walton <p
+                                                                class="text-sm ml-2 text-gray-500">1h ago</p>
+                                                        </h3>
+
                                                         <span
                                                             class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-500">
                                                             <span
@@ -79,6 +84,7 @@
                                                         </span>
                                                     </div>
                                                     <p class="text-sm text-gray-500">Check my Voucher</p>
+
                                                 </div>
                                             </div>
                                         </li>
