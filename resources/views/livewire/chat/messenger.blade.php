@@ -46,15 +46,19 @@
                                 <!-- This example requires Tailwind CSS v2.0+ -->
                                 <div class=" bg-white">
                                     <ul role="list" class="divide-y   divide-gray-200">
-                                        <li class="py-4 cursor-pointer  ">
+                                        <li class="py-4 cursor-pointer   ">
                                             <div class="flex space-x-3">
                                                 <img class="h-12 w-12 rounded-full"
                                                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
                                                     alt="">
                                                 <div class="flex-1 space-y-1">
                                                     <div class="flex items-center justify-between">
-                                                        <h3 class="text-sm font-medium">Lindsay Walton</h3>
-                                                        <p class="text-sm text-gray-500">1h</p>
+                                                        <h3 class="text-sm font-medium">Ivan Walton</h3>
+                                                        <span
+                                                            class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-500">
+                                                            <span
+                                                                class="text-xs font-medium leading-none text-white">22</span>
+                                                        </span>
                                                     </div>
                                                     <p class="text-sm text-gray-500">This is my Last message</p>
                                                 </div>
@@ -68,9 +72,13 @@
                                                 <div class="flex-1 space-y-1">
                                                     <div class="flex items-center justify-between">
                                                         <h3 class="text-sm font-medium">Lindsay Walton</h3>
-                                                        <p class="text-sm text-gray-500">1h</p>
+                                                        <span
+                                                            class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-blue-500">
+                                                            <span
+                                                                class="text-xs font-medium leading-none text-white">1</span>
+                                                        </span>
                                                     </div>
-                                                    <p class="text-sm text-gray-500">This is my Last message</p>
+                                                    <p class="text-sm text-gray-500">Check my Voucher</p>
                                                 </div>
                                             </div>
                                         </li>
