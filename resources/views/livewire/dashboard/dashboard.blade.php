@@ -400,6 +400,9 @@
                                                     <!-- More people... -->
                                                 </tbody>
                                             </table>
+
+
+                                            <livewire:sample />
                                         </div>
                                     </div>
                                 </div>

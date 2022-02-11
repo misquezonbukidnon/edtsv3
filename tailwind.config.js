@@ -24,6 +24,9 @@ module.exports = {
             './resources/**/*.php',
             './resources/**/*.vue',
             './resources/**/*.twig',
+            './app/Http/Livewire/**/Sample.php',
+            './vendor/power-components/livewire-powergrid/resources/views/**/*.php',
+            './vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php'
         ],
         options: {
             defaultExtractor: (content) => content.match(/[\w-/.:]+(?<!:)/g) || [],

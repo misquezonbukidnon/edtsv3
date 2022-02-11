@@ -20,21 +20,23 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
         @livewireStyles
-
+        @powerGridStyles
         <!-- Scripts -->
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script src="{{ url(mix('js/app.js')) }}" defer></script>
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <!-- @powerGridStyles -->
+
+
     </head>
 
     <body class="h-full">
         @yield('body')
 
         @livewireScripts
-        <!-- @powerGridScripts -->
+
+        @powerGridScripts
     </body>
 
 </html>
