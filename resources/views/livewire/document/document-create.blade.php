@@ -42,21 +42,89 @@
                     Details
                 </p>
             </div>
+            @if (session()->has('errorMessage'))
+            <div class="rounded-md bg-red-50 p-4" x-data="{show: false}" x-data="{ show: false }" x-init="() => {
+                setTimeout(() => show = true, 500);
+                setTimeout(() => show = false, 20000);
+                }" x-show="show" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform scale-90"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-90" style="display: none;">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <!-- Heroicon name: solid/x-circle -->
+                        <a href="{{ $notification_error = false; }}"><svg class="h-5 w-5 text-red-400"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd" />
+                            </svg></a>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-red-800">There were errors with your submission</h3>
+                        <div class="mt-2 text-sm text-red-700">
+                            <ul role="list" class="list-disc pl-5 space-y-1">
+                                <li>{{ session()->get('errorMessage') }}
+                                    {{ session()->forget('errorMessage') }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            @if (session()->has('successMessage'))
+            <!-- This example requires Tailwind CSS v2.0+ -->
+            <div class="rounded-md bg-green-50 p-4" x-data="{show: false}" x-data="{ show: false }" x-init="() => {
+                setTimeout(() => show = true, 500);
+                setTimeout(() => show = false, 20000);
+                }" x-show="show" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform scale-90"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-90" style="display: none;">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <!-- Heroicon name: solid/check-circle -->
+                        <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-green-800">Success!</h3>
+                        <div class="mt-2 text-sm text-green-700">
+                            <p>
+                                <li>{{ session()->get('successMessage') }}
+                                    {{ session()->forget('successMessage') }}</li>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
             <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
 
                 <div class="mt-5 md:mt-0 md:col-span-2">
-                    <form onsubmit="return false">
+                    <form onsubmit="return false" wire:submit.prevent="formSubmit">
                         <div class="shadow overflow-hidden sm:rounded-md">
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <div class="grid grid-cols-6 gap-6">
 
-
                                     <div class="col-span-6 sm:col-span-4">
-                                        <label for="document-name" class="block text-sm font-medium text-gray-700">Date
+                                        <label for="date_of_entry" class="block text-sm font-medium text-gray-700">Date
                                             of
                                             Entry</label>
-                                        <input type="date" name="document-name" id="dateofentry"
-                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                                        <input type="date" wire:model="date_of_entry" id="dateofentry"
+                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('date_of_entry') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                        @error('date_of_entry')
+                                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="col-span-6 sm:col-span-3">
@@ -133,7 +201,8 @@
                                             Voucher Details
                                         </p>
                                     </div>
-                                    <!----------------------------------------------------------------- form for Purchase Request here ------------------------------------------------------>
+
+                                    <!-- form for Purchase Request here -->
                                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6"
                                         x-show="count === 1">
                                         <div class="sm:col-span-6">
@@ -141,14 +210,19 @@
                                                 Office
                                             </label>
                                             <div class="mt-1">
-                                                <select id="office" name="office" autocomplete="office-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <select id="office" name="office_id" wire:model="office_id"
+                                                    autocomplete="office-name"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Click to Select</option>
-                                                    <option> MMO - Management Information System Division</option>
-                                                    <option> Municipal Disaster Risk Reduction and Management Office
-                                                    </option>
+                                                    @foreach ($office as $office)
+                                                    <option value="{{ $office->id }}">{{ $office->abbr }} - {{
+                                                        $office->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
+                                            @error('office_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
 
@@ -160,14 +234,17 @@
                                             </div>
 
                                             <div class="mt-1">
-                                                <select id="Fund" name="Fund" autocomplete="Fund-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <select id="Fund" wire:model="fund" autocomplete="Fund-name"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('fund') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Select Fund</option>
-                                                    <option> General Fund</option>
-                                                    <option> Trust Fund</option>
-                                                    <option> Special Education Fund</option>
+                                                    <option value="GF">General Fund</option>
+                                                    <option value="TF">Trust Fund</option>
+                                                    <option value="SEF">Special Education Fund</option>
                                                 </select>
                                             </div>
+                                            @error('fund')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
 
@@ -179,10 +256,13 @@
                                             </div>
 
                                             <div class="mt-1">
-                                                <input type="text" name="last-name" id="last-name"
-                                                    autocomplete="family-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <input type="text" wire:model="reference_id" id="reference_id"
+                                                    autocomplete="reference_id"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('reference_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('reference_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="sm:col-span-6">
@@ -190,14 +270,19 @@
                                                 Particulars
                                             </label>
                                             <div class="mt-1">
-                                                <select id="Particulars" name="Particulars"
+                                                <select id="Particulars" wire:model="purchase_description_id"
                                                     autocomplete="Particulars-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Click to Select</option>
-                                                    <option> Agricultural Machinery and Equipment</option>
-                                                    <option> Agricultural Products (Seeds, Seedlings, Plants..)</option>
+                                                    @foreach ($purchase_description as $particulars)
+                                                    <option value="{{ $particulars->id }}">{{ $particulars->name }}
+                                                    </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
+                                            @error('purchase_description_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
 
@@ -206,10 +291,13 @@
                                                 Purpose
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="purpose" id="purpose" autocomplete="purpose"
-                                                    placeholder="Purchase Request Purpose"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <input type="text" wire:model="description" id="purpose"
+                                                    autocomplete="purpose" placeholder="Purchase Request Purpose"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('description') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('description')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="sm:col-span-6">
@@ -217,63 +305,33 @@
                                                 Approved Budget for the Contract
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="budget" id="budget" autocomplete="budget"
-                                                    placeholder="Please enter the amount"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <input type="text" wire:model="abc_amount" id="budget"
+                                                    autocomplete="budget" placeholder="Please enter the amount"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('abc_amount') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('abc_amount')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
 
                                     <!-- end -->
-                                    <!----------------------------------------------------------------- form for Purchase Order here ------------------------------------------------------>
+                                    <!-- form for Purchase Order here -->
                                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6"
                                         x-show="count === 2">
 
                                         <div class="sm:col-span-2">
                                             <div>
                                                 <p class="mt-1 text-sm text-gray-500">
-                                                    Purchase Order Reference No.
+                                                    Select Transaction Type.
                                                 </p>
                                             </div>
 
                                             <div class="mt-1">
-                                                <input type="text" name="PO" id="last-name" autocomplete="family-name"
-                                                    placeholder="PO"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                                    disabled>
-                                            </div>
-                                        </div>
-
-                                        <div class="sm:col-span-4">
-                                            <div>
-                                                <p class="mt-1 text-sm text-gray-500">
-                                                    Reference No.
-                                                </p>
-                                            </div>
-
-                                            <div class="mt-1">
-                                                <input type="text" name="last-name" id="last-name"
-                                                    autocomplete="family-name"
+                                                <select id="transactionType" wire:model="transaction_type"
+                                                    autocomplete="transactionType"
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="sm:col-span-2">
-                                            <div>
-                                                <p class="mt-1 text-sm text-gray-500">
-                                                    Select Fund Type.
-                                                </p>
-                                            </div>
-
-                                            <div class="mt-1">
-                                                <select id="Fund" name="Fund" autocomplete="Fund-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                                    <option>Select Fund</option>
-                                                    <option> General Fund</option>
-                                                    <option> Trust Fund</option>
-                                                    <option> Special Education Fund</option>
+                                                    <option value="PO">Purchase Order</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -286,10 +344,49 @@
                                             </div>
 
                                             <div class="mt-1">
-                                                <input type="text" name="last-name" id="last-name"
-                                                    autocomplete="family-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <input type="text" wire:model="reference_id" id="reference_id"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('reference_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('reference_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <!-- Auto Fill from PR -->
+                                        <div class="sm:col-span-2">
+                                            <div>
+                                                <p class="mt-1 text-sm text-gray-500">
+                                                    Sub Reference No.
+                                                </p>
+                                            </div>
+
+                                            <div class="mt-1">
+                                                <input type="text" wire:model="sub_reference_id_purchase_order"
+                                                    id="sub_reference_id_purchase_order"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('sub_reference_id_purchase_order') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                            </div>
+                                            @error('sub_reference_id_purchase_order')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+                                        <div class="sm:col-span-6">
+                                            <label for="Canvasser" class="block text-sm font-medium text-gray-700">
+                                                Canvasser
+                                            </label>
+                                            <div class="mt-1">
+                                                <select id="Canvasser" wire:model="canvasser_id"
+                                                    autocomplete="Canvasser-name"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('canvasser_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                                    <option>Select Canvasser</option>
+                                                    @foreach ($canvasser as $canvasser)
+                                                    <option value="{{ $canvasser->id }}">{{ $canvasser->name }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @error('canvasser_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
 
@@ -298,14 +395,18 @@
                                                 Office
                                             </label>
                                             <div class="mt-1">
-                                                <select id="office" name="office" autocomplete="office-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                                    <option>Click to Select</option>
-                                                    <option> MMO - Management Information System Division</option>
-                                                    <option> Municipal Disaster Risk Reduction and Management Office
-                                                    </option>
+                                                <select id="office" wire:model="office_id" autocomplete="office-name"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                                    <option>Select Office</option>
+                                                    @foreach ($office_voucher as $office)
+                                                    <option value="{{ $office->id }}">{{ $office->abbr }} - {{
+                                                        $office->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
+                                            @error('office_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="sm:col-span-6">
@@ -313,14 +414,19 @@
                                                 Particulars
                                             </label>
                                             <div class="mt-1">
-                                                <select id="Particulars" name="Particulars"
+                                                <select id="Particulars" wire:model="purchase_description_id"
                                                     autocomplete="Particulars-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                                    <option>Click to Select</option>
-                                                    <option> Agricultural Machinery and Equipment</option>
-                                                    <option> Agricultural Products (Seeds, Seedlings, Plants..)</option>
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                                    <option>Select Particulars</option>
+                                                    @foreach ($purchase_description_po as $particulars)
+                                                    <option value="{{ $particulars->id }}">{{ $particulars->name }}
+                                                    </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
+                                            @error('purchase_description_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
 
@@ -329,10 +435,13 @@
                                                 Purpose
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="purpose" id="purpose" autocomplete="purpose"
-                                                    placeholder="Purchase Request Purpose"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <input type="text" wire:model="description" id="purpose"
+                                                    autocomplete="purpose" placeholder="Purchase Request Purpose"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('description') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('description')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="sm:col-span-6">
@@ -340,10 +449,13 @@
                                                 Contract Price
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="contract-price" id="contract-price"
+                                                <input type="text" wire:model="lcb_amount" id="contract-price"
                                                     autocomplete="contract-price" placeholder="Enter Contract Price"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('lcb_amount') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('lcb_amount')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="sm:col-span-6">
@@ -351,24 +463,20 @@
                                                 Supplier
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="supplier" id="supplier" autocomplete="supplier"
-                                                    placeholder="Enter Supplier"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <select id="supplier" wire:model="supplier_id"
+                                                    autocomplete="supplier-name"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                                    <option>Select Supplier</option>
+                                                    @foreach ($supplier as $supplier)
+                                                    <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
+                                            @error('supplier_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
-
-                                        <div class="sm:col-span-6">
-                                            <label for="supplieraddress"
-                                                class="block text-sm font-medium text-gray-700">
-                                                Supplier Address
-                                            </label>
-                                            <div class="mt-1">
-                                                <input type="text" name="supplieraddress" id="supplieraddress"
-                                                    autocomplete="supplieraddress" placeholder="Enter Supplier Address"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                            </div>
-                                        </div>
-
                                     </div>
 
 
@@ -376,7 +484,7 @@
                                     <!-- end -->
 
 
-                                    <!----------------------------------------------------------------- form for Voucher ------------------------------------------------------>
+                                    <!-- form for Voucher -->
                                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6"
                                         x-show="count === 3">
                                         <div class="sm:col-span-6">
@@ -385,32 +493,17 @@
                                                 Voucher Reference No.
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="voucherreferenceno" id="voucherreferenceno"
-                                                    autocomplete="voucherreferenceno"
+                                                <input type="text" wire:model="reference_id" id="reference_id"
+                                                    autocomplete="reference_id"
                                                     placeholder="Emter Voucher Reference No."
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('reference_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('reference_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="sm:col-span-2">
-                                            <div>
-                                                <p class="mt-1 text-sm text-gray-500">
-                                                    Select Fund Type.
-                                                </p>
-                                            </div>
-
-                                            <div class="mt-1">
-                                                <select id="Fund" name="Fund" autocomplete="Fund-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                                    <option>Select Fund</option>
-                                                    <option> General Fund</option>
-                                                    <option> Trust Fund</option>
-                                                    <option> Special Education Fund</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="sm:col-span-4">
                                             <div>
                                                 <p class="mt-1 text-sm text-gray-500">
                                                     Sub Reference No.
@@ -418,10 +511,33 @@
                                             </div>
 
                                             <div class="mt-1">
-                                                <input type="text" name="last-name" id="last-name"
-                                                    autocomplete="family-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <input type="text" wire:model="sub_reference_id_voucher"
+                                                    id="sub_reference_id"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('sub_reference_id_voucher') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('sub_reference_id_voucher')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+
+
+                                        <div class="sm:col-span-6">
+                                            <label for="office" class="block text-sm font-medium text-gray-700">
+                                                Office
+                                            </label>
+                                            <div class="mt-1">
+                                                <select id="office" wire:model="office_id" autocomplete="office-name"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                                    <option>Select Office</option>
+                                                    @foreach ($office_voucher as $office)
+                                                    <option value="{{ $office->id }}">{{ $office->abbr }} - {{
+                                                        $office->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @error('office_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                         <div class="sm:col-span-6">
@@ -429,50 +545,68 @@
                                                 Particulars
                                             </label>
                                             <div class="mt-1">
-                                                <select id="Particulars" name="Particulars"
+                                                <select id="Particulars" wire:model="purchase_description_id"
                                                     autocomplete="Particulars-name"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                                    <option>Click to Select</option>
-                                                    <option> Agricultural Machinery and Equipment</option>
-                                                    <option> Agricultural Products (Seeds, Seedlings, Plants..)</option>
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                                    <option>Select Particulars</option>
+                                                    @foreach ($purchase_description_voucher as $particulars)
+                                                    <option value="{{ $particulars->id }}">{{ $particulars->name }}
+                                                    </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
+                                            @error('purchase_description_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
+
 
                                         <div class="sm:col-span-6">
                                             <label for="purpose" class="block text-sm font-medium text-gray-700">
                                                 Purpose
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="purpose" id="purpose" autocomplete="purpose"
-                                                    placeholder="Purchase Request Purpose"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <input type="text" wire:model="description" id="purpose"
+                                                    autocomplete="purpose" placeholder="Purchase Request Purpose"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('description') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
+                                            @error('description')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
-
+                                        <div class="sm:col-span-6">
+                                            <label for="contract-price" class="block text-sm font-medium text-gray-700">
+                                                Contract Price
+                                            </label>
+                                            <div class="mt-1">
+                                                <input type="text" wire:model="lcb_amount" id="contract-price"
+                                                    autocomplete="contract-price" placeholder="Enter Contract Price"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('lcb_amount') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                            </div>
+                                            @error('lcb_amount')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
+                                        </div>
 
                                         <div class="sm:col-span-6">
-                                            <label for="payee" class="block text-sm font-medium text-gray-700">
+                                            <label for="supplier" class="block text-sm font-medium text-gray-700">
                                                 Payee
                                             </label>
                                             <div class="mt-1">
-                                                <input type="text" name="payee" id="payee" autocomplete="payee"
-                                                    placeholder="Enter Payee"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                                <select id="supplier" wire:model="supplier_id"
+                                                    autocomplete="supplier-name"
+                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                                    <option>Select Supplier</option>
+                                                    @foreach ($supplier_voucher as $supplier)
+                                                    <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                    </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
-                                        </div>
-
-
-                                        <div class="sm:col-span-6">
-                                            <label for="amount" class="block text-sm font-medium text-gray-700">
-                                                Amount
-                                            </label>
-                                            <div class="mt-1">
-                                                <input type="text" name="amount" id="amount" autocomplete="amount"
-                                                    placeholder="Enter Amount"
-                                                    class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                            </div>
+                                            @error('supplier_id')
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            @enderror
                                         </div>
 
                                     </div>

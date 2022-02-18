@@ -19,10 +19,16 @@ class CanvasserSeeder extends Seeder
                 'name' => 'Joel Salonoy'
             ],
             [
-                'name' => 'Melvin Abaquita'
+                'name' => 'Marilou Elemento'
             ],
             [
-                'name' => 'Marilou Elemento'
+                'name' => 'Arnel Lacubtan'
+            ],
+            [
+                'name' => 'Jonrie Maribao'
+            ],
+            [
+                'name' => 'Jeffrey Rivero'
             ]
         ]);
     }
