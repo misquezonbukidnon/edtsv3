@@ -64,10 +64,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', Dashboard::class)->name('home');
     Route::get('/document/create', DocumentCreate::class)->name('create-document');
-    Route::get('/document/edit/{id}', DocumentEdit::class)->name('edit-document');
+    Route::get('/document/', DocumentEdit::class)->name('edit-document');
     Route::get('/endorsement', Endorsement::class)->name('endorsement');
     Route::get('/endorsement/create/{id}', EndorsementCreate::class)->name('endorsementform');
     Route::get('/find/record', Record::class)->name('findrecord');
-    Route::get('/find/record/{id}', RecordFind::class)->name('findrecordform');
+    Route::get('/find/', RecordFind::class)->name('findrecordform');
     Route::get('/reports', GenerateReport::class)->name('reports');
 });

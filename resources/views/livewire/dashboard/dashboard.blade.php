@@ -402,7 +402,11 @@
                                             </table>
 
 
-                                            <livewire:sample />
+
+
+
+
+
                                         </div>
                                     </div>
                                 </div>

@@ -195,12 +195,18 @@
                             Attachments
                         </label>
                         <div class="mt-1">
-                            <select id="attachment" name="attachment" autocomplete="attachment-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                <option>Select Attachments</option>
-                                <option>General Payroll</option>
-                                <option>Overtime Order</option>
+                            <select id="attachment" wire:model="attachmentsData" name="attachment"
+                                autocomplete="attachment-name"
+                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                                multiple>
+                                <option disabled>Select Attachments</option>
+                                <option value="General Payroll">General Payroll</option>
+                                <option value="Overtime Order">Overtime Order</option>
                             </select>
+
+                            <ul>
+                                <li>{{($attachmentsData[1]}}</li>
+                            </ul>
                         </div>
                     </div>
 
