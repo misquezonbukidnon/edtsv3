@@ -129,8 +129,7 @@
 
                                     <div class="col-span-6 sm:col-span-3">
                                         <div>
-                                            <label class="text-base font-medium text-gray-900">Select Process [test -
-                                                {{ $process_type_id }}]</label>
+
                                             <fieldset class="mt-4">
 
                                                 <div
@@ -648,7 +647,7 @@
                     </div>
                     <!-- modals -->
                     <div>
-                        <livewire:document.document-modal-qr />
+                        <!-- <livewire:document.document-modal-qr /> -->
                     </div>
 
                     <!-- end of modals -->
