@@ -16,6 +16,9 @@ class CanvasserSeeder extends Seeder
     {
         DB::table('canvassers')->insert([
             [
+                'name' => 'None'
+            ],
+            [
                 'name' => 'Joel Salonoy'
             ],
             [

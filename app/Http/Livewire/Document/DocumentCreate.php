@@ -143,6 +143,7 @@ class DocumentCreate extends Component
                     $document->office_id = $this->office_id;
                     $document->purchase_description_id = $this->purchase_description_id;
                     $document->abc_amount = $this->abc_amount;
+                    $document->supplier_id = 1; // default supplier id
                     $document->status_id = 1;
                     $document->document_process_status_id = 1;
                     $document->user_id = auth()->user()->id;

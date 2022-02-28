@@ -16,6 +16,10 @@ class SupplierSeeder extends Seeder
     {
         DB::table('suppliers')->insert([
             [
+                'name' => 'None',
+                'address' => 'None'
+            ],
+            [
                 'name' => 'Kiokong Construction & Development Corporation',
                 'address' => 'Quezon, Bukidnon'
             ],
@@ -324,7 +328,7 @@ class SupplierSeeder extends Seeder
                 'address' => 'Malaybalay City'
             ],
 
-            
+
 
         ]);
     }
