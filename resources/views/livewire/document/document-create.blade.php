@@ -5,7 +5,7 @@
                 <li class="flex">
                     <div class="flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">
-                            <!-- Heroicon name: solid/home -->
+
                             <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                 fill="currentColor" aria-hidden="true">
                                 <path
@@ -32,7 +32,7 @@
     </div>
 
     <div x-cloak class="max-w-7xl mb-16 mt-5 mx-auto sm:px-6 lg:px-8">
-        <!-- This example requires Tailwind CSS v2.0+ -->
+
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -54,7 +54,7 @@
                 x-transition:leave-end="opacity-0 transform scale-90" style="display: none;">
                 <div class="flex">
                     <div class="flex-shrink-0">
-                        <!-- Heroicon name: solid/x-circle -->
+
                         <a href="{{ $notification_error = false; }}"><svg class="h-5 w-5 text-red-400"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 aria-hidden="true">
@@ -76,7 +76,7 @@
             </div>
             @endif
             @if (session()->has('successMessage'))
-            <!-- This example requires Tailwind CSS v2.0+ -->
+
             <div class="rounded-md bg-green-50 p-4" x-data="{show: false}" x-data="{ show: false }" x-init="() => {
                 setTimeout(() => show = true, 500);
                 setTimeout(() => show = false, 20000);
@@ -88,7 +88,7 @@
                 x-transition:leave-end="opacity-0 transform scale-90" style="display: none;">
                 <div class="flex">
                     <div class="flex-shrink-0">
-                        <!-- Heroicon name: solid/check-circle -->
+
                         <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                             fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd"
@@ -171,7 +171,7 @@
 
                                 </div>
 
-                                <!-- form -->
+
 
                                 <div class="pt-8">
                                     <div class="hidden sm:block" aria-hidden="true">
@@ -201,7 +201,7 @@
                                         </p>
                                     </div>
 
-                                    <!-- form for Purchase Request here -->
+
                                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6"
                                         x-show="count === 1">
                                         <div class="sm:col-span-6">
@@ -314,8 +314,7 @@
                                         </div>
                                     </div>
 
-                                    <!-- end -->
-                                    <!-- form for Purchase Order here -->
+
                                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6"
                                         x-show="count === 2">
 
@@ -350,7 +349,7 @@
                                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <!-- Auto Fill from PR -->
+
                                         <div class="sm:col-span-2">
                                             <div>
                                                 <p class="mt-1 text-sm text-gray-500">
@@ -480,10 +479,6 @@
 
 
 
-                                    <!-- end -->
-
-
-                                    <!-- form for Voucher -->
                                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6"
                                         x-show="count === 3">
                                         <div class="sm:col-span-6">
@@ -610,7 +605,7 @@
 
                                     </div>
 
-                                    <!-- end -->
+
                                 </div>
                             </div>
                             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -637,20 +632,17 @@
 
 
 
-        <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="flex flex-col ">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg p-5">
-                        <!-- table -->
                         <livewire:document-table />
                     </div>
-                    <!-- modals -->
+
                     <div>
-                        <!-- <livewire:document.document-modal-qr /> -->
+
                     </div>
 
-                    <!-- end of modals -->
                 </div>
             </div>
 
