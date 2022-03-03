@@ -1,491 +1,571 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
+<div>
+    <!-- Nav Bar Section -->
+    <div class="max-w-8xl my-5 mx-auto sm:px-6 lg:px-8">
+        <nav class="flex " aria-label="Breadcrumb">
+            <ol role="list" class="bg-white rounded-md shadow px-6 flex space-x-4">
+                <li class="flex">
+                    <div class="flex items-center">
+                        <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">
+                            <!-- Heroicon name: solid/home -->
+                            <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                            </svg>
+                            <span class="sr-only">Home</span>
 
-<div class="max-w-7xl my-5 mx-auto sm:px-6 lg:px-8">
-    <nav class="flex " aria-label="Breadcrumb">
-        <ol role="list" class="bg-white rounded-md shadow px-6 flex space-x-4">
-            <li class="flex">
-                <div class="flex items-center">
-                    <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">
-                        <!-- Heroicon name: solid/home -->
-                        <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                            fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                        </a>
+                    </div>
+
+                </li>
+
+                <li class="flex">
+                    <div class="flex items-center">
+                        <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44"
+                            preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
                         </svg>
-                        <span class="sr-only">Home</span>
-                    </a>
-                </div>
-            </li>
-
-            <li class="flex">
-                <div class="flex items-center">
-                    <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none"
-                        fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
-                    </svg>
-                    <a href="{{ route('create-document') }}"
-                        class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Document</a>
-                </div>
-            </li>
-            <li class="flex">
-                <div class="flex items-center">
-                    <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44" preserveAspectRatio="none"
-                        fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
-                    </svg>
-                    <a class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Edit</a>
-                </div>
-            </li>
-        </ol>
-    </nav>
-</div>
-
-
-
-
-<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-        <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg leading-6 font-medium text-gray-900">
-                Information
-            </h3>
-
-        </div>
-        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-            <dl class="sm:divide-y sm:divide-gray-200">
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Date of Entry
-                    </dt>
-                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        2021-11-22
-                    </dd>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Reference No.
-                    </dt>
-                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        TF-99
-                    </dd>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Office
-                    </dt>
-                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        Municipal Social Welfare and Development Office
-                    </dd>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Description
-                    </dt>
-                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        TO CONDUCT 2ND NDRRMC MEETING WITH THE COMMUNITY VOLUNTEERS OF 24 PRIORITY BARQANGAY OF KALAHI
-                        ADDITIONAL FINANCING
-                    </dd>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Particulars
-                    </dt>
-                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                        Particulars
-                    </dd>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Current Document Holder
-                    </dt>
-                    <div>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            Neil Darwin Cadampog
-                        </dd>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            Municipal Budget Office
-                        </dd>
+                        <a href="{{ route('create-document') }}"
+                            class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Document</a>
                     </div>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Approved Budget for the Contract (ABC)
-                    </dt>
-                    <div>
-                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            30,600.00
-                        </dd>
-
+                </li>
+                <li class="flex">
+                    <div class="flex items-center">
+                        <svg class="flex-shrink-0 w-6 h-full text-gray-200" viewBox="0 0 24 44"
+                            preserveAspectRatio="none" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
+                        </svg>
+                        <a class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">Edit</a>
                     </div>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <dt class="text-sm font-medium text-gray-500">
-                        Status
-                    </dt>
-                    <div>
-                        <dd class="mt-1 text-m text-bold text-green-700 sm:mt-0 sm:col-span-2">
-                            Document has been completely processed
-                        </dd>
-
-                    </div>
-                </div>
-                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                    <h3 class="color-"></h3>
-                </div>
-
-
-            </dl>
-        </div>
+                </li>
+            </ol>
+        </nav>
     </div>
 
 
+    <!-- Data Viewing Section -->
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="max-w-8xl  sm:pl-6 lg:pl-8">
+            <div class="bg-white shadow overflow-hidden  sm:rounded-lg">
+                <div class="px-4 py-5 sm:px-6">
+                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        Information
+                    </h3>
 
-
-
-
-
-
-
-
-
-    <!-- PURCHASE REQUEST -->
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg mt-5">
-        <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg leading-6 font-medium text-gray-900">
-                Purchase Request
-            </h3>
-
-        </div>
-        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-            <div class="px-4 py-5 bg-white sm:p-6">
-                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-                    <div class="sm:col-span-6">
-                        <label for="office" class="block text-sm font-medium text-gray-700">
-                            Office
-                        </label>
-                        <div class="mt-1">
-                            <select id="office" name="office" autocomplete="office-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                <option>Click to Select</option>
-                                <option> MMO - Management Information System Division</option>
-                                <option> Municipal Disaster Risk Reduction and Management Office
-                                </option>
-                            </select>
+                </div>
+                <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                    <dl class="sm:divide-y sm:divide-gray-200">
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Date of Entry
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$date_of_entry}}
+                            </dd>
                         </div>
-                    </div>
-
-                    <div class="sm:col-span-4">
-                        <div>
-                            <p class="mt-1 text-sm text-gray-500">
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
                                 Reference No.
-                            </p>
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$reference_id}}
+                            </dd>
                         </div>
-
-                        <div class="mt-1">
-                            <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-2">
-                        <div>
-                            <p class="mt-1 text-sm text-gray-500">
-                                Select Fund Type.
-                            </p>
-                        </div>
-
-                        <div class="mt-1">
-                            <select id="Fund" name="Fund" autocomplete="Fund-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                <option>Select Fund</option>
-                                <option> General Fund</option>
-                                <option> Trust Fund</option>
-                                <option> Special Education Fund</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-6">
-                        <label for="Particulars" class="block text-sm font-medium text-gray-700">
-                            Particulars
-                        </label>
-                        <div class="mt-1">
-                            <select id="Particulars" name="Particulars" autocomplete="Particulars-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                <option>Click to Select</option>
-                                <option> Agricultural Machinery and Equipment</option>
-                                <option> Agricultural Products (Seeds, Seedlings, Plants..)</option>
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="sm:col-span-6">
-                        <label for="purpose" class="block text-sm font-medium text-gray-700">
-                            Purpose
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="purpose" id="purpose" autocomplete="purpose"
-                                placeholder="Purchase Request Purpose"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-6">
-                        <label for="budget" class="block text-sm font-medium text-gray-700">
-                            Approved Budget for the Contract
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="budget" id="budget" autocomplete="budget"
-                                placeholder="Please enter the amount"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <!-- PURCHASE ORDER -->
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg mt-5">
-        <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg leading-6 font-medium text-gray-900">
-                Purchase Order
-            </h3>
-
-        </div>
-        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-            <div class="px-4 py-5 bg-white sm:p-6">
-                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-
-                    <div class="sm:col-span-2">
-                        <div>
-                            <p class="mt-1 text-sm text-gray-500">
-                                Select Fund Type.
-                            </p>
-                        </div>
-
-                        <div class="mt-1">
-                            <input type="text" name="PO" id="last-name" autocomplete="family-name" placeholder="PO"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                disabled>
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-4">
-                        <div>
-                            <p class="mt-1 text-sm text-gray-500">
-                                Reference No.
-                            </p>
-                        </div>
-
-                        <div class="mt-1">
-                            <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-6">
-                        <label for="office" class="block text-sm font-medium text-gray-700">
-                            Office
-                        </label>
-                        <div class="mt-1">
-                            <select id="office" name="office" autocomplete="office-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                <option>Click to Select</option>
-                                <option> MMO - Management Information System Division</option>
-                                <option> Municipal Disaster Risk Reduction and Management Office
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-6">
-                        <label for="Particulars" class="block text-sm font-medium text-gray-700">
-                            Particulars
-                        </label>
-                        <div class="mt-1">
-                            <select id="Particulars" name="Particulars" autocomplete="Particulars-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                <option>Click to Select</option>
-                                <option> Agricultural Machinery and Equipment</option>
-                                <option> Agricultural Products (Seeds, Seedlings, Plants..)</option>
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="sm:col-span-6">
-                        <label for="purpose" class="block text-sm font-medium text-gray-700">
-                            Purpose
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="purpose" id="purpose" autocomplete="purpose"
-                                placeholder="Purchase Request Purpose"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-6">
-                        <label for="contract-price" class="block text-sm font-medium text-gray-700">
-                            Contract Price
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="contract-price" id="contract-price" autocomplete="contract-price"
-                                placeholder="Enter Contract Price"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-6">
-                        <label for="supplier" class="block text-sm font-medium text-gray-700">
-                            Supplier
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="supplier" id="supplier" autocomplete="supplier"
-                                placeholder="Enter Supplier"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-6">
-                        <label for="supplieraddress" class="block text-sm font-medium text-gray-700">
-                            Supplier Address
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="supplieraddress" id="supplieraddress"
-                                autocomplete="supplieraddress" placeholder="Enter Supplier Address"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit"
-                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Submit
-                </button>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- VOUCHER -->
-    <div class="bg-white shadow overflow-hidden sm:rounded-lg mt-5">
-        <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg leading-6 font-medium text-gray-900">
-                Voucher
-            </h3>
-
-        </div>
-        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
-            <div class="px-4 py-5 bg-white sm:p-6">
-                <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-                    <div class="sm:col-span-6">
-                        <label for="voucherreferenceno" class="block text-sm font-medium text-gray-700">
-                            Voucher Reference No.
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="voucherreferenceno" id="voucherreferenceno"
-                                autocomplete="voucherreferenceno" placeholder="Emter Voucher Reference No."
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-2">
-                        <div>
-                            <p class="mt-1 text-sm text-gray-500">
-                                Select Fund Type.
-                            </p>
-                        </div>
-
-                        <div class="mt-1">
-                            <select id="Fund" name="Fund" autocomplete="Fund-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                <option>Select Fund</option>
-                                <option> General Fund</option>
-                                <option> Trust Fund</option>
-                                <option> Special Education Fund</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="sm:col-span-4">
-                        <div>
-                            <p class="mt-1 text-sm text-gray-500">
+                        @if($process_type_id === 'Purchase Order')
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
                                 Sub Reference No.
-                            </p>
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$sub_reference_id}}
+                            </dd>
+                        </div>
+                        @endif
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Office
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$office_name}}
+                            </dd>
+                        </div>
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Description
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$description}}
+                            </dd>
+                        </div>
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Payee
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$supplier_name}}
+                            </dd>
+                        </div>
+                        @if($process_type_id === 'Purchase Order')
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Supplier
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$supplier_name}}
+                            </dd>
+                        </div>
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Supplier Address
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$supplier_address}}
+                            </dd>
+                        </div>
+                        @endif
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Particulars
+                            </dt>
+                            <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                {{$purchase_description_name}}
+                            </dd>
                         </div>
 
-                        <div class="mt-1">
-                            <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Current Document Holder
+                            </dt>
+                            <div>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                    {{$canvasser_id}}
+                                </dd>
+                            </div>
                         </div>
+                        @if($process_type_id !== 'Purchase Order')
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Approved Budget for the Contract (ABC)
+                            </dt>
+                            <div>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                    ₱ {{$abc_amount}}
+                                </dd>
+
+                            </div>
+                        </div>
+                        @endif
+                        @if($process_type_id == 'Purchase Order')
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Approved Budget for the Contract (LCB)
+                            </dt>
+                            <div>
+                                <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                                    ₱ {{$lcb_amount}}
+                                </dd>
+
+                            </div>
+                        </div>
+                        @endif
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt class="text-sm font-medium text-gray-500">
+                                Status
+                            </dt>
+                            <div>
+                                <dd class="mt-1 text-m text-bold text-green-700 sm:mt-0 sm:col-span-2">
+                                    {{$document_process_status_id}}
+                                </dd>
+
+                            </div>
+                        </div>
+                        <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <h3 class="color-"></h3>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Editing Section -->
+        <div class="max-w-8xl sm:pr-6 lg:pr-8">
+            <form action="">
+                <!-- PURCHASE REQUEST -->
+                @if ($process_type_id === 'Purchase Request')
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            Purchase Request
+                        </h3>
+
                     </div>
+                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                                <div class="sm:col-span-2">
+                                    <div>
+                                        <p class=" text-sm text-gray-500">
+                                            Reference No.
+                                        </p>
+                                    </div>
 
-                    <div class="sm:col-span-6">
-                        <label for="Particulars" class="block text-sm font-medium text-gray-700">
-                            Particulars
-                        </label>
-                        <div class="mt-1">
-                            <select id="Particulars" name="Particulars" autocomplete="Particulars-name"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                <option>Click to Select</option>
-                                <option> Agricultural Machinery and Equipment</option>
-                                <option> Agricultural Products (Seeds, Seedlings, Plants..)</option>
-                            </select>
+                                    <div class="mt-1">
+                                        <input id="pr_reference_id" wire:model="pr_reference_id" type="text"
+                                            name="pr_reference_id" autocomplete="pr_reference_id"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-4">
+                                    <label for="office" class="block text-sm font-medium text-gray-700">
+                                        Office
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="pr_office" wire:model="pr_office_id_submit"
+                                            autocomplete="pr_office_id"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                            <option value="{{ $pr_office_id }}">{{$pr_office_abbr}} -
+                                                {{ $pr_office_name }}
+                                            </option>
+                                            @foreach ($pr_office as $office)
+                                            @if($pr_office_name != $office->name)
+                                            <option wire:key="{{ $office->id }}" @click="dd($office_id_submit)"
+                                                value="{{ $office->id }}">
+                                                {{ $pr_office_abbr }} - {{$office->name }}
+                                            </option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-4">
+                                    <label for="purpose" class="block text-sm font-medium text-gray-700">
+                                        Purpose
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="pr_description" name="purpose" id="purpose"
+                                            autocomplete="purpose" placeholder="Purchase Request Purpose"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-2">
+                                    <label for="Particulars" class="block text-sm font-medium text-gray-700">
+                                        Particulars
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="Particulars" wire:model="pr_purchase_description_id_submit"
+                                            autocomplete="Particulars-name"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                            <option value="{{ $pr_purchase_description_id }}">
+                                                {{ $pr_purchase_description_name }}
+                                                @foreach ($pr_purchase_description_particulars as $particulars)
+                                                @if($pr_purchase_description_name != $particulars->name)
+                                            <option value="{{ $particulars->id }}">{{ $particulars->name }}</option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-2">
+                                    <label for="budget" class="block text-sm font-medium text-gray-700">
+                                        Approved Budget for the Contract
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="pr_abc_amount" name="budget" id="budget"
+                                            autocomplete="budget" placeholder="Please enter the amount"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="sm:col-span-6">
-                        <label for="purpose" class="block text-sm font-medium text-gray-700">
-                            Purpose
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="purpose" id="purpose" autocomplete="purpose"
-                                placeholder="Purchase Request Purpose"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-
-
-                    <div class="sm:col-span-6">
-                        <label for="payee" class="block text-sm font-medium text-gray-700">
-                            Payee
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="payee" id="payee" autocomplete="payee" placeholder="Enter Payee"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-
-
-                    <div class="sm:col-span-6">
-                        <label for="amount" class="block text-sm font-medium text-gray-700">
-                            Amount
-                        </label>
-                        <div class="mt-1">
-                            <input type="text" name="amount" id="amount" autocomplete="amount"
-                                placeholder="Enter Amount"
-                                class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button type="submit"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Update
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                <button type="submit"
-                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Submit
-                </button>
-            </div>
+                @endif
+
+
+                <!-- PURCHASE ORDER -->
+                @if ($process_type_id === 'Purchase Order')
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            Purchase Order
+                        </h3>
+
+                    </div>
+                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+
+                                <div class="sm:col-span-3">
+                                    <div>
+                                        <p class="mt-1 text-sm text-gray-500">
+                                            Purchase Order Reference No.
+                                        </p>
+                                    </div>
+
+                                    <div class="mt-1">
+                                        <input wire:model="po_reference_id" type="text" name="po_reference_id"
+                                            id="po_reference_id" autocomplete="po_reference_id"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-3">
+                                    <div>
+                                        <p class="mt-1 text-sm text-gray-500">
+                                            Document Reference No.
+                                        </p>
+                                    </div>
+
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="po_sub_reference_id" name="po_sub_reference_id"
+                                            id="po_sub_reference_id" autocomplete="po_sub_reference_id"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-6">
+                                    <label for="office" class="block text-sm font-medium text-gray-700">
+                                        Office
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="po_office_id_submit" wire:model="po_office_id_submit"
+                                            autocomplete="po_office_id"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                            <option value="{{ $po_office_id }}">{{$po_office_abbr}} -
+                                                {{ $po_office_name }}
+                                            </option>
+                                            @foreach ($po_office as $office)
+                                            @if($po_office_name != $office->name)
+                                            <option value="{{ $office->id }}">{{ $office->abbr }} - {{$office->name }}
+                                            </option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-6">
+                                    <label for="Particulars" class="block text-sm font-medium text-gray-700">
+                                        Particulars
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="po_purchase_description_id_submit"
+                                            wire:model="po_purchase_description_id_submit"
+                                            autocomplete="Particulars-name"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                            <option value="$purchase_description_id">{{ $po_purchase_description_name }}
+                                                @foreach ($po_purchase_description_particulars as $particulars)
+                                                @if($po_purchase_description_name != $particulars->name)
+                                            <option value="{{ $particulars->id }}">{{ $particulars->name }}
+                                            </option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="sm:col-span-6">
+                                    <label for="purpose" class="block text-sm font-medium text-gray-700">
+                                        Purpose
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="po_description" name="po_description"
+                                            id="po_description" autocomplete="purpose"
+                                            placeholder="Purchase Request Purpose"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-6">
+                                    <label for="contract-price" class="block text-sm font-medium text-gray-700">
+                                        Contract Price
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="po_lcb_amount" name="po_lcb_amount"
+                                            id="po_lcb_amount" autocomplete="po_lcb_amount"
+                                            placeholder="Enter Contract Price"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-6">
+                                    <label for="supplier" class="block text-sm font-medium text-gray-700">
+                                        Supplier
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="suppliers" wire:model="po_supplier_id_submit" name="suppliers"
+                                            autocomplete="suppliers"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            <option value="{{ $po_supplier_id }}">{{$po_supplier_name}}</option>
+                                            @foreach ($po_suppliers as $suppliers)
+                                            @if($suppliers->name != $po_supplier_name)
+                                            <option value="{{ $suppliers->id }}"> {{$suppliers->name}}</option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button type="submit"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if ($process_type_id === 'Voucher')
+                <!-- VOUCHER -->
+                <div class="bg-white shadow overflow-hidden sm:rounded-lg ">
+                    <div class="px-4 py-5 sm:px-6">
+                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            Voucher
+                        </h3>
+
+                    </div>
+                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                                <div class="sm:col-span-6">
+                                    <label for="voucherreferenceno" class="block text-sm font-medium text-gray-700">
+                                        Voucher Reference No.
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="voucher_reference_id" name="voucher_reference_id"
+                                            id="voucher_reference_id" autocomplete="voucher_reference_id"
+                                            placeholder="Emter Voucher Reference No."
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+
+                                <div class="sm:col-span-6">
+                                    <div>
+                                        <p class="mt-1 text-sm text-gray-500">
+                                            Sub Reference No.
+                                        </p>
+                                    </div>
+
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="voucher_sub_reference_id"
+                                            name="voucher_sub_reference_id" id="voucher_sub_reference_id"
+                                            autocomplete="voucher_sub_reference_id"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-6">
+                                    <label for="office" class="block text-sm font-medium text-gray-700">
+                                        Office Concern
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="voucher_office_id_submit" wire:model="voucher_office_id_submit"
+                                            autocomplete="voucher_office_id_submit"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                            <option value="{{ $voucher_office_id }}">{{$voucher_office_abbr}} -
+                                                {{ $voucher_office_name }}
+                                            </option>
+                                            @foreach ($voucher_office as $office)
+                                            @if($voucher_office_name != $office->name)
+                                            <option value="{{ $office->id }}">{{ $office->abbr }} - {{$office->name }}
+                                            </option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-6">
+                                    <label for="Particulars" class="block text-sm font-medium text-gray-700">
+                                        Particulars
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="Particulars" wire:model="voucher_purchase_description_id_submit"
+                                            autocomplete="Particulars-name"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
+                                            <option value="$voucher_purchase_description_id">
+                                                {{ $voucher_purchase_description_name }}
+                                                @foreach ($voucher_purchase_description_particulars as $particulars)
+                                                @if($voucher_purchase_description_name != $particulars->name)
+                                            <option value="{{ $particulars->id }}">{{ $particulars->name }}
+                                            </option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="sm:col-span-6">
+                                    <label for="purpose" class="block text-sm font-medium text-gray-700">
+                                        Purpose
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="voucher_purchase_description" name="purpose"
+                                            id="purpose" autocomplete="purpose" placeholder="Purchase Request Purpose"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="sm:col-span-6">
+                                    <label for="payee" class="block text-sm font-medium text-gray-700">
+                                        Payee
+                                    </label>
+                                    <div class="mt-1">
+                                        <select id="suppliers" wire:model="voucher_payee_id_submit" name="suppliers"
+                                            autocomplete="suppliers"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            <option value="{{ $voucher_payee_id }}">{{$voucher_payee_name}}</option>
+                                            @foreach ($voucher_payee as $suppliers)
+                                            @if($suppliers->name != $voucher_payee_name)
+                                            <option value="{{ $suppliers->id }}"> {{$suppliers->name}}</option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="sm:col-span-6">
+                                    <label for="amount" class="block text-sm font-medium text-gray-700">
+                                        Amount
+                                    </label>
+                                    <div class="mt-1">
+                                        <input type="text" wire:model="voucher_abc_amount" name="amount" id="amount"
+                                            autocomplete="amount" placeholder="Enter Amount"
+                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button type="submit"
+                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
         </div>
     </div>
-
 </div>

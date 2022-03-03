@@ -116,7 +116,7 @@
                             <div class="px-4 py-5 bg-white sm:p-6">
                                 <div class="grid grid-cols-6 gap-6">
 
-                                    <div class="col-span-6 sm:col-span-4">
+                                    <div class="col-span-2 sm:col-span-2">
                                         <label for="date_of_entry" class="block text-sm font-medium text-gray-700">Date
                                             of
                                             Entry</label>
@@ -127,7 +127,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-span-6 sm:col-span-3">
+                                    <div class="col-span-6 sm:col-span-6">
                                         <div>
 
                                             <fieldset class="mt-4">
