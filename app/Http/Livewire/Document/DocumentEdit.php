@@ -103,6 +103,9 @@ class DocumentEdit extends Component
 
     public $suppliers;
 
+
+    public $process_id;
+
     public function mount($id)
     {
         $query = Document::with('office', 'documentProcessStatus', 'proccessType', 'office', 'purchaseDescription', 'canvasser', 'supplier', 'user')->where('id', '=', $id)->first();
@@ -115,11 +118,12 @@ class DocumentEdit extends Component
        
       //  identify Process type
        $this->process_type_id = $query->proccessType->name;
+       $this->process_id = $query->process_type_id;
 
 
       // Get Selected Process Type Datas (PR, PO, Voucher)
-       switch($this->process_type_id) {
-          case('Purchase Request'):
+       switch($this->process_id) {
+          case 1:
           //   Purchase Request
             $this->pr_reference_id = $query->reference_id;
             $this->pr_office_id = $query->office_id;
@@ -134,7 +138,7 @@ class DocumentEdit extends Component
             $this->pr_abc_amount = $query->abc_amount;
           break;
 
-          case('Purchase Order'):
+          case 2:
             //   Purchase Order
             $this->po_reference_id = $query->reference_id;
             $this->po_sub_reference_id = $query->sub_reference_id;
@@ -154,7 +158,7 @@ class DocumentEdit extends Component
             $this->po_lcb_amount = $query->lcb_amount;
           break;
 
-          case('Voucher'):
+          case 3:
             //   Voucher
             $this->voucher_reference_id = $query->reference_id;
             $this->voucher_sub_reference_id = $query->sub_reference_id;
