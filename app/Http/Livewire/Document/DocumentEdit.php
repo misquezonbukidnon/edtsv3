@@ -12,7 +12,7 @@ use App\Models\Supplier;
 
 class DocumentEdit extends Component
 {
-   // Purchase Request Variables
+    // Purchase Request Variables
     public $pr_reference_id;
     public $pr_office_id;
     public $pr_office_id_submit;
@@ -45,7 +45,7 @@ class DocumentEdit extends Component
     public $po_supplier_name;
     public $po_lcb_amount;
 
-   // Voucher Variables
+    // Voucher Variables
     public $voucher_reference_id;
     public $voucher_sub_reference_id;
     public $voucher_office_id;
@@ -66,12 +66,13 @@ class DocumentEdit extends Component
 
 
 
-    // For Displaying Data 
+    // For Displaying Data
     public $date_of_entry;
     public $reference_id;
     public $sub_reference_id;
     public $description;
     public $process_type_id;
+    public $process_type_name;
     public $office_id;
     public $office_name;
     public $office_abbr;
@@ -104,25 +105,23 @@ class DocumentEdit extends Component
     public $suppliers;
 
 
-    public $process_id;
-
     public function mount($id)
     {
         $query = Document::with('office', 'documentProcessStatus', 'proccessType', 'office', 'purchaseDescription', 'canvasser', 'supplier', 'user')->where('id', '=', $id)->first();
-   
-      // assigning values to public variables
-       $officeQuery = Office::all();
-       $supplierQuery = Supplier::all();
-       $purchaseDescriptionQuery = PurchaseDescription::all();
 
-       
-      //  identify Process type
-       $this->process_type_id = $query->proccessType->name;
-       $this->process_id = $query->process_type_id;
+        // assigning values to public variables
+        $officeQuery = Office::all();
+        $supplierQuery = Supplier::all();
+        $purchaseDescriptionQuery = PurchaseDescription::all();
 
 
-      // Get Selected Process Type Datas (PR, PO, Voucher)
-       switch($this->process_id) {
+        //  identify Process type
+        $this->process_type_id = $query->proccessType->id;
+        $this->process_type_name = $query->proccessType->name;
+
+
+        // Get Selected Process Type Datas (PR, PO, Voucher)
+        switch ($this->process_type_id) {
           case 1:
           //   Purchase Request
             $this->pr_reference_id = $query->reference_id;
@@ -180,7 +179,7 @@ class DocumentEdit extends Component
           break;
        }
 
-         // For Displaying Data 
+        // For Displaying Data
         $this->date_of_entry = $query->date_of_entry;
         $this->reference_id = $query->reference_id;
         $this->sub_reference_id = $query->sub_reference_id;
@@ -193,10 +192,10 @@ class DocumentEdit extends Component
         $this->abc_amount = $query->abc_amount;
         $this->lcb_amount = $query->lcb_amount;
         $this->supplier_id = $query->supplier_id;
-        if(isset($query->canvasser->name)){
-             $this->canvasser_id = $query->canvasser->name;
-        }else{
-             $this->canvasser_id = 'No Canvasser';
+        if (isset($query->canvasser->name)) {
+            $this->canvasser_id = $query->canvasser->name;
+        } else {
+            $this->canvasser_id = 'No Canvasser';
         }
         $this->status_id = $query->status_id;
         $this->users_id = $query->users_id;
@@ -208,7 +207,35 @@ class DocumentEdit extends Component
         $this->purchase_description_particulars = $purchaseDescriptionQuery;
         $this->suppliers = $supplierQuery;
     }
-    
+
+    public function submitForm()
+    {
+        $query = Document::with('office', 'documentProcessStatus', 'proccessType', 'office', 'purchaseDescription', 'canvasser', 'supplier', 'user')->where('reference_id', '=', $this->reference_id)->first();
+
+        // update document table
+        switch ($this->process_type_id) {
+          case 1:
+          // reference code
+            $query->reference_id = $this->pr_reference_id;
+            $query->office_id = $this->pr_office_id;
+            $query->office_id_submit = $this->pr_office_id_submit;
+
+            break;
+
+          case 2:
+            # code...
+            break;
+
+          case 3:
+            # code...
+            break;
+
+          default:
+            // send error message
+            break;
+        }
+    }
+
     public function render()
     {
         return view('livewire.document.document-edit');

@@ -1,14 +1,14 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div>
     <!-- Nav Bar Section -->
-    <div class="max-w-8xl my-5 mx-auto sm:px-6 lg:px-8">
+    <div class="mx-auto my-5 max-w-8xl sm:px-6 lg:px-8">
         <nav class="flex " aria-label="Breadcrumb">
-            <ol role="list" class="bg-white rounded-md shadow px-6 flex space-x-4">
+            <ol role="list" class="flex px-6 space-x-4 bg-white rounded-md shadow">
                 <li class="flex">
                     <div class="flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-400 hover:text-gray-500">
                             <!-- Heroicon name: solid/home -->
-                            <svg class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                 fill="currentColor" aria-hidden="true">
                                 <path
                                     d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
@@ -48,15 +48,15 @@
 
     <!-- Data Viewing Section -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        <div class="max-w-8xl  sm:pl-6 lg:pl-8">
-            <div class="bg-white shadow overflow-hidden  sm:rounded-lg">
+        <div class="max-w-8xl sm:pl-6 lg:pl-8">
+            <div class="overflow-hidden bg-white shadow sm:rounded-lg">
                 <div class="px-4 py-5 sm:px-6">
-                    <h3 class="text-lg leading-6 font-medium text-gray-900">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900">
                         Information
                     </h3>
 
                 </div>
-                <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
                     <dl class="sm:divide-y sm:divide-gray-200">
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
@@ -74,7 +74,7 @@
                                 {{$reference_id}}
                             </dd>
                         </div>
-                        @if($process_type_id === 'Purchase Order')
+                        @if($process_type_id == 1)
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 Sub Reference No.
@@ -108,7 +108,7 @@
                                 {{$supplier_name}}
                             </dd>
                         </div>
-                        @if($process_type_id === 'Purchase Order')
+                        @if($process_type_id == 2)
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 Supplier
@@ -145,7 +145,7 @@
                                 </dd>
                             </div>
                         </div>
-                        @if($process_type_id !== 'Purchase Order')
+                        @if($process_type_id != 2)
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 Approved Budget for the Contract (ABC)
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         @endif
-                        @if($process_type_id == 'Purchase Order')
+                        @if($process_type_id == 2)
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 Approved Budget for the Contract (LCB)
@@ -176,7 +176,7 @@
                                 Status
                             </dt>
                             <div>
-                                <dd class="mt-1 text-m text-bold text-green-700 sm:mt-0 sm:col-span-2">
+                                <dd class="mt-1 text-green-700 text-m text-bold sm:mt-0 sm:col-span-2">
                                     {{$document_process_status_id}}
                                 </dd>
 
@@ -193,22 +193,22 @@
 
         <!-- Editing Section -->
         <div class="max-w-8xl sm:pr-6 lg:pr-8">
-            <form action="">
+            <form wire:submit.prevent="submitForm">
                 <!-- PURCHASE REQUEST -->
-                @if ($process_type_id === 'Purchase Request')
-                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                @if ($process_type_id == 1)
+                <div class="overflow-hidden bg-white shadow sm:rounded-lg">
                     <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">
                             Purchase Request
                         </h3>
 
                     </div>
-                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                    <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                            <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
                                 <div class="sm:col-span-2">
                                     <div>
-                                        <p class=" text-sm text-gray-500">
+                                        <p class="text-sm text-gray-500 ">
                                             Reference No.
                                         </p>
                                     </div>
@@ -216,7 +216,7 @@
                                     <div class="mt-1">
                                         <input id="pr_reference_id" wire:model="pr_reference_id" type="text"
                                             name="pr_reference_id" autocomplete="pr_reference_id"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
                                 <div class="sm:col-span-4">
@@ -249,7 +249,7 @@
                                     <div class="mt-1">
                                         <input type="text" wire:model="pr_description" name="purpose" id="purpose"
                                             autocomplete="purpose" placeholder="Purchase Request Purpose"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
 
@@ -279,14 +279,14 @@
                                     <div class="mt-1">
                                         <input type="text" wire:model="pr_abc_amount" name="budget" id="budget"
                                             autocomplete="budget" placeholder="Please enter the amount"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                             <button type="submit"
-                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Update
                             </button>
                         </div>
@@ -296,17 +296,17 @@
 
 
                 <!-- PURCHASE ORDER -->
-                @if ($process_type_id === 'Purchase Order')
-                <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                @if ($process_type_id == 2)
+                <div class="overflow-hidden bg-white shadow sm:rounded-lg">
                     <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">
                             Purchase Order
                         </h3>
 
                     </div>
-                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                    <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                            <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
 
                                 <div class="sm:col-span-3">
                                     <div>
@@ -318,7 +318,7 @@
                                     <div class="mt-1">
                                         <input wire:model="po_reference_id" type="text" name="po_reference_id"
                                             id="po_reference_id" autocomplete="po_reference_id"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
 
@@ -332,7 +332,7 @@
                                     <div class="mt-1">
                                         <input type="text" wire:model="po_sub_reference_id" name="po_sub_reference_id"
                                             id="po_sub_reference_id" autocomplete="po_sub_reference_id"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
 
@@ -386,7 +386,7 @@
                                         <input type="text" wire:model="po_description" name="po_description"
                                             id="po_description" autocomplete="purpose"
                                             placeholder="Purchase Request Purpose"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
 
@@ -398,7 +398,7 @@
                                         <input type="text" wire:model="po_lcb_amount" name="po_lcb_amount"
                                             id="po_lcb_amount" autocomplete="po_lcb_amount"
                                             placeholder="Enter Contract Price"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
 
@@ -409,7 +409,7 @@
                                     <div class="mt-1">
                                         <select id="suppliers" wire:model="po_supplier_id_submit" name="suppliers"
                                             autocomplete="suppliers"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                             <option value="{{ $po_supplier_id }}">{{$po_supplier_name}}</option>
                                             @foreach ($po_suppliers as $suppliers)
                                             @if($suppliers->name != $po_supplier_name)
@@ -421,9 +421,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                             <button type="submit"
-                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Update
                             </button>
                         </div>
@@ -431,18 +431,18 @@
                 </div>
                 @endif
 
-                @if ($process_type_id === 'Voucher')
                 <!-- VOUCHER -->
-                <div class="bg-white shadow overflow-hidden sm:rounded-lg ">
+                @if ($process_type_id == 3)
+                <div class="overflow-hidden bg-white shadow sm:rounded-lg ">
                     <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">
                             Voucher
                         </h3>
 
                     </div>
-                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                    <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                            <div class="grid grid-cols-1 mt-6 gap-y-6 gap-x-4 sm:grid-cols-6">
                                 <div class="sm:col-span-6">
                                     <label for="voucherreferenceno" class="block text-sm font-medium text-gray-700">
                                         Voucher Reference No.
@@ -451,7 +451,7 @@
                                         <input type="text" wire:model="voucher_reference_id" name="voucher_reference_id"
                                             id="voucher_reference_id" autocomplete="voucher_reference_id"
                                             placeholder="Emter Voucher Reference No."
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
 
@@ -467,7 +467,7 @@
                                         <input type="text" wire:model="voucher_sub_reference_id"
                                             name="voucher_sub_reference_id" id="voucher_sub_reference_id"
                                             autocomplete="voucher_sub_reference_id"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
 
@@ -519,7 +519,7 @@
                                     <div class="mt-1">
                                         <input type="text" wire:model="voucher_purchase_description" name="purpose"
                                             id="purpose" autocomplete="purpose" placeholder="Purchase Request Purpose"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
 
@@ -532,7 +532,7 @@
                                     <div class="mt-1">
                                         <select id="suppliers" wire:model="voucher_payee_id_submit" name="suppliers"
                                             autocomplete="suppliers"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                             <option value="{{ $voucher_payee_id }}">{{$voucher_payee_name}}</option>
                                             @foreach ($voucher_payee as $suppliers)
                                             @if($suppliers->name != $voucher_payee_name)
@@ -551,21 +551,21 @@
                                     <div class="mt-1">
                                         <input type="text" wire:model="voucher_abc_amount" name="amount" id="amount"
                                             autocomplete="amount" placeholder="Enter Amount"
-                                            class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                             <button type="submit"
-                                class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                class="inline-flex justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Update
                             </button>
                         </div>
                     </div>
                 </div>
                 @endif
-
+            </form>
         </div>
     </div>
 </div>
