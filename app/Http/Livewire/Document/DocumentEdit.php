@@ -66,7 +66,7 @@ class DocumentEdit extends Component
 
 
 
-
+    // For Displaying Data 
     public $date_of_entry;
     public $reference_id;
     public $sub_reference_id;
@@ -112,65 +112,75 @@ class DocumentEdit extends Component
        $supplierQuery = Supplier::all();
        $purchaseDescriptionQuery = PurchaseDescription::all();
 
-      //   Purchase Request
-        $this->pr_reference_id = $query->reference_id;
-        $this->pr_office_id = $query->office_id;
-        $this->po_office_id_submit = $query->office_id;
-        $this->pr_office_name = $query->office->name;
-        $this->pr_office_abbr = $query->office->abbr;
-        $this->pr_description = $query->description;
-        $this->pr_purchase_description_name = $query->purchaseDescription->name;
-        $this->pr_office = $officeQuery;
-        $this->pr_purchase_description_id = $query->purchase_description_id;
-        $this->pr_purchase_description_particulars = $purchaseDescriptionQuery;
-        $this->pr_abc_amount = $query->abc_amount;
+       
+      //  identify Process type
+       $this->process_type_id = $query->proccessType->name;
 
 
-      //   Purchase Order
-        $this->po_reference_id = $query->reference_id;
-        $this->po_sub_reference_id = $query->sub_reference_id;
-        $this->po_office_id = $query->office_id;
-        $this->po_office_id_submit = $query->office_id;
-        $this->po_office_name = $query->office->name;
-        $this->po_office_abbr = $query->office->abbr;
-        $this->po_description = $query->description;
-        $this->po_purchase_description_id = $query->purchase_description_id;
-        $this->voucher_purchase_description_id_submit = $query->purchase_description_id;
-        $this->po_purchase_description_name = $query->purchaseDescription->name;
-        $this->po_purchase_description_particulars = $purchaseDescriptionQuery;
-        $this->po_office = $officeQuery;
-        $this->po_suppliers = $supplierQuery;
-        $this->po_supplier_id = $query->supplier_id;
-        $this->po_supplier_name = $query->supplier->name;
-        $this->po_lcb_amount = $query->lcb_amount;
+      // Get Selected Process Type Datas (PR, PO, Voucher)
+       switch($this->process_type_id) {
+          case('Purchase Request'):
+          //   Purchase Request
+            $this->pr_reference_id = $query->reference_id;
+            $this->pr_office_id = $query->office_id;
+            $this->po_office_id_submit = $query->office_id;
+            $this->pr_office_name = $query->office->name;
+            $this->pr_office_abbr = $query->office->abbr;
+            $this->pr_description = $query->description;
+            $this->pr_purchase_description_name = $query->purchaseDescription->name;
+            $this->pr_office = $officeQuery;
+            $this->pr_purchase_description_id = $query->purchase_description_id;
+            $this->pr_purchase_description_particulars = $purchaseDescriptionQuery;
+            $this->pr_abc_amount = $query->abc_amount;
+          break;
 
+          case('Purchase Order'):
+            //   Purchase Order
+            $this->po_reference_id = $query->reference_id;
+            $this->po_sub_reference_id = $query->sub_reference_id;
+            $this->po_office_id = $query->office_id;
+            $this->po_office_id_submit = $query->office_id;
+            $this->po_office_name = $query->office->name;
+            $this->po_office_abbr = $query->office->abbr;
+            $this->po_description = $query->description;
+            $this->po_purchase_description_id = $query->purchase_description_id;
+            $this->voucher_purchase_description_id_submit = $query->purchase_description_id;
+            $this->po_purchase_description_name = $query->purchaseDescription->name;
+            $this->po_purchase_description_particulars = $purchaseDescriptionQuery;
+            $this->po_office = $officeQuery;
+            $this->po_suppliers = $supplierQuery;
+            $this->po_supplier_id = $query->supplier_id;
+            $this->po_supplier_name = $query->supplier->name;
+            $this->po_lcb_amount = $query->lcb_amount;
+          break;
 
-      //   Voucher
-        $this->voucher_reference_id = $query->reference_id;
-        $this->voucher_sub_reference_id = $query->sub_reference_id;
-        $this->voucher_office = $officeQuery;
-        $this->voucher_office_id = $query->office_id;
-        $this->voucher_office_id_submit = $query->office_id;
-        $this->voucher_office_name = $query->office->name;
-        $this->voucher_office_abbr =  $query->office->abbr;
-        $this->voucher_purchase_description = $query->description;
-        $this->voucher_purchase_description_id = $query->purchase_description_id;
-        $this->voucher_purchase_description_id_submit = $query->purchase_description_id;
-        $this->voucher_purchase_description_name = $query->purchaseDescription->name;
-        $this->voucher_purchase_description_particulars = $purchaseDescriptionQuery;
-        $this->voucher_payee = $supplierQuery;
-        $this->voucher_payee_id = $query->supplier_id;
-        $this->voucher_payee_id_submit = $query->supplier_id;
-        $this->voucher_payee_name =  $query->supplier->name;
-        $this->voucher_abc_amount = $query->abc_amount;
-
+          case('Voucher'):
+            //   Voucher
+            $this->voucher_reference_id = $query->reference_id;
+            $this->voucher_sub_reference_id = $query->sub_reference_id;
+            $this->voucher_office = $officeQuery;
+            $this->voucher_office_id = $query->office_id;
+            $this->voucher_office_id_submit = $query->office_id;
+            $this->voucher_office_name = $query->office->name;
+            $this->voucher_office_abbr =  $query->office->abbr;
+            $this->voucher_purchase_description = $query->description;
+            $this->voucher_purchase_description_id = $query->purchase_description_id;
+            $this->voucher_purchase_description_id_submit = $query->purchase_description_id;
+            $this->voucher_purchase_description_name = $query->purchaseDescription->name;
+            $this->voucher_purchase_description_particulars = $purchaseDescriptionQuery;
+            $this->voucher_payee = $supplierQuery;
+            $this->voucher_payee_id = $query->supplier_id;
+            $this->voucher_payee_id_submit = $query->supplier_id;
+            $this->voucher_payee_name =  $query->supplier->name;
+            $this->voucher_abc_amount = $query->abc_amount;
+          break;
+       }
 
          // For Displaying Data 
         $this->date_of_entry = $query->date_of_entry;
         $this->reference_id = $query->reference_id;
         $this->sub_reference_id = $query->sub_reference_id;
         $this->description = $query->description;
-        $this->process_type_id = $query->proccessType->name;
         $this->office_name = $query->office->name;
         $this->office_abbr = $query->office->abbr;
         $this->office_id = $query->office_id;
@@ -193,10 +203,6 @@ class DocumentEdit extends Component
         $this->office = $officeQuery;
         $this->purchase_description_particulars = $purchaseDescriptionQuery;
         $this->suppliers = $supplierQuery;
-        
-
-
-
     }
     
     public function render()
