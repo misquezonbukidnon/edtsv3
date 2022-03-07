@@ -9,6 +9,7 @@ use App\Models\Document;
 use App\Models\Office;
 use App\Models\PurchaseDescription;
 use App\Models\Supplier;
+use App\Models\Endorsement;
 
 class DocumentEdit extends Component
 {
@@ -126,13 +127,14 @@ class DocumentEdit extends Component
           //   Purchase Request
             $this->pr_reference_id = $query->reference_id;
             $this->pr_office_id = $query->office_id;
-            $this->po_office_id_submit = $query->office_id;
+            $this->pr_office_id_submit = $query->office_id;
             $this->pr_office_name = $query->office->name;
             $this->pr_office_abbr = $query->office->abbr;
             $this->pr_description = $query->description;
             $this->pr_purchase_description_name = $query->purchaseDescription->name;
             $this->pr_office = $officeQuery;
             $this->pr_purchase_description_id = $query->purchase_description_id;
+            $this->pr_purchase_description_id_submit = $query->purchase_description_id;
             $this->pr_purchase_description_particulars = $purchaseDescriptionQuery;
             $this->pr_abc_amount = $query->abc_amount;
           break;
@@ -215,10 +217,21 @@ class DocumentEdit extends Component
         // update document table
         switch ($this->process_type_id) {
           case 1:
-          // reference code
+            $query->date_of_entry = $this->date_of_entry;
             $query->reference_id = $this->pr_reference_id;
-            $query->office_id = $this->pr_office_id;
-            $query->office_id_submit = $this->pr_office_id_submit;
+            $query->office_id =  $this->pr_office_id_submit;
+            $query->description = $this->pr_description;
+            $query->purchase_description_id = $this->pr_purchase_description_id_submit;
+            $query->abc_amount = $this->pr_abc_amount;
+            $query->user_id = auth()->user()->id;
+            $query->save();
+
+
+        
+          // reference code
+            // $this->emit('successMessage');
+            // session()->put('successMessage', 'Document successfully created');
+            // return back();
 
             break;
 
