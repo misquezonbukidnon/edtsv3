@@ -133,7 +133,7 @@ class DocumentCreate extends Component
                 if (isset($queryReferenceNumber)) {
                     $this->emit('errorMessage');
                     session()->put('errorMessage', 'Reference number already exists');
-                    return back();
+                    return redirect()->to('/document/create');
                 } else {
                     $document = new Document();
                     $document->date_of_entry = $this->date_of_entry;
@@ -167,8 +167,8 @@ class DocumentCreate extends Component
                     $endorsement->save();
 
                     $this->emit('successMessage');
-                    session()->put('successMessage', 'Document successfully created');
-                    return back();
+                    session()->put('successMessage', 'Document successfully created. Table has been updated.');
+                    return redirect()->to('/document/create');
                 }
                 break;
 
@@ -230,12 +230,12 @@ class DocumentCreate extends Component
 
 
                     $this->emit('successMessage');
-                    session()->put('successMessage', 'Document successfully created');
-                    return back();
+                    session()->put('successMessage', 'Document successfully created. Table has been updated.');
+                    return redirect()->to('/document/create');
                 } else {
                     $this->emit('errorMessage');
                     session()->put('errorMessage', 'Sub-reference number does not exist. Reference number already exists in the database');
-                    return back();
+                    return redirect()->to('/document/create');
                 }
 
                 break;
@@ -299,12 +299,12 @@ class DocumentCreate extends Component
 
 
                     $this->emit('successMessage');
-                    session()->put('successMessage', 'Document successfully created');
-                    return back();
+                    session()->put('successMessage', 'Document successfully created. Table has been updated.');
+                    return redirect()->to('/document/create');
                 } else {
                     $this->emit('errorMessage');
                     session()->put('errorMessage', 'Reference number does not exist.');
-                    return back();
+                    return redirect()->to('/document/create');
                 }
 
                 break;

@@ -217,22 +217,30 @@ class DocumentEdit extends Component
         // update document table
         switch ($this->process_type_id) {
           case 1:
+          // validaion
+          $this->validate([
+            'date_of_entry' => ['required'],
+            'description' => ['required'],
+            'office_id' => ['required'],
+            'purchase_description_id' => ['required'],
+            'abc_amount' => ['required'],
+          ]);
+
+          // validated
             $query->date_of_entry = $this->date_of_entry;
             $query->reference_id = $this->pr_reference_id;
-            $query->office_id =  $this->pr_office_id_submit;
             $query->description = $this->pr_description;
+            $query->process_type_id = $this->process_type_id;
+            $query->office_id =  $this->pr_office_id_submit;
             $query->purchase_description_id = $this->pr_purchase_description_id_submit;
             $query->abc_amount = $this->pr_abc_amount;
             $query->user_id = auth()->user()->id;
             $query->save();
 
-
-        
           // reference code
-            // $this->emit('successMessage');
-            // session()->put('successMessage', 'Document successfully created');
-            // return back();
-
+            $this->emit('updatedMessage');
+            session()->put('updatedMessage', 'Document successfully updated');
+            return redirect()->to("/document/edit/$query->id");
             break;
 
           case 2:

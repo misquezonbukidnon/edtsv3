@@ -18,8 +18,17 @@ final class DocumentTable extends PowerGridComponent
 {
     use ActionButton;
 
+    public $listeners = ['refreshTableCreate'];
+
     //Messages informing success/error data is updated.
     public bool $showUpdateMessages = true;
+
+
+    // update dataTable
+    public function refreshTableCreate()
+    {
+        return $this->refresh();
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -33,7 +42,7 @@ final class DocumentTable extends PowerGridComponent
         $this->showCheckBox()
             ->showPerPage()
             ->showSearchInput()
-            ->showExportOption('download', ['excel', 'csv']);
+            ->showExportOption('download', ['excel']);
     }
 
     /*
@@ -224,11 +233,11 @@ final class DocumentTable extends PowerGridComponent
     |
     */
 
-     /**
-     * PowerGrid Document Action Rules.
-     *
-     * @return array<int, \PowerComponents\LivewirePowerGrid\Rules\Rule>
-     */
+    /**
+    * PowerGrid Document Action Rules.
+    *
+    * @return array<int, \PowerComponents\LivewirePowerGrid\Rules\Rule>
+    */
 
     /*
     public function actionRules(): array
@@ -252,11 +261,11 @@ final class DocumentTable extends PowerGridComponent
     |
     */
 
-     /**
-     * PowerGrid Document Update.
-     *
-     * @param array<string,string> $data
-     */
+    /**
+    * PowerGrid Document Update.
+    *
+    * @param array<string,string> $data
+    */
 
     /*
     public function update(array $data ): bool

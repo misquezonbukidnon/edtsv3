@@ -63,7 +63,7 @@
                                 Date of Entry
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$date_of_entry}}
+                                {{ $date_of_entry }}
                             </dd>
                         </div>
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -71,16 +71,16 @@
                                 Reference No.
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$reference_id}}
+                                {{ $reference_id }}
                             </dd>
                         </div>
-                        @if($process_type_id == 2)
+                        @if ($process_type_id == 2)
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 Sub Reference No.
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$sub_reference_id}}
+                                {{ $sub_reference_id }}
                             </dd>
                         </div>
                         @endif
@@ -89,7 +89,7 @@
                                 Office
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$office_name}}
+                                {{ $office_name }}
                             </dd>
                         </div>
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -97,7 +97,7 @@
                                 Description
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$description}}
+                                {{ $description }}
                             </dd>
                         </div>
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -105,16 +105,16 @@
                                 Payee
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$supplier_name}}
+                                {{ $supplier_name }}
                             </dd>
                         </div>
-                        @if($process_type_id == 2)
+                        @if ($process_type_id == 2)
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 Supplier
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$supplier_name}}
+                                {{ $supplier_name }}
                             </dd>
                         </div>
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -122,7 +122,7 @@
                                 Supplier Address
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$supplier_address}}
+                                {{ $supplier_address }}
                             </dd>
                         </div>
                         @endif
@@ -131,7 +131,7 @@
                                 Particulars
                             </dt>
                             <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                {{$purchase_description_name}}
+                                {{ $purchase_description_name }}
                             </dd>
                         </div>
 
@@ -141,31 +141,31 @@
                             </dt>
                             <div>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    {{$canvasser_id}}
+                                    {{ $canvasser_id }}
                                 </dd>
                             </div>
                         </div>
-                        @if($process_type_id != 2)
+                        @if ($process_type_id != 2)
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 Approved Budget for the Contract (ABC)
                             </dt>
                             <div>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    ₱ {{$abc_amount}}
+                                    ₱ {{ $abc_amount }}
                                 </dd>
 
                             </div>
                         </div>
                         @endif
-                        @if($process_type_id == 2)
+                        @if ($process_type_id == 2)
                         <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class="text-sm font-medium text-gray-500">
                                 Approved Budget for the Contract (LCB)
                             </dt>
                             <div>
                                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    ₱ {{$lcb_amount}}
+                                    ₱ {{ $lcb_amount }}
                                 </dd>
 
                             </div>
@@ -177,7 +177,7 @@
                             </dt>
                             <div>
                                 <dd class="mt-1 text-green-700 text-m text-bold sm:mt-0 sm:col-span-2">
-                                    {{$document_process_status_id}}
+                                    {{ $document_process_status_id }}
                                 </dd>
 
                             </div>
@@ -258,6 +258,38 @@
                 </div>
             </div>
             @endif
+            @if (session()->has('updatedMessage'))
+            <div class="p-4 mb-3 rounded-md bg-green-50" x-data="{show: false}" x-data="{ show: false }" x-init="() => {
+                setTimeout(() => show = true, 500);
+                setTimeout(() => show = false, 5000);
+                }" x-show="show" x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 transform scale-90"
+                x-transition:enter-end="opacity-100 transform scale-100"
+                x-transition:leave="transition ease-in duration-300"
+                x-transition:leave-start="opacity-100 transform scale-100"
+                x-transition:leave-end="opacity-0 transform scale-90" style="display: none;">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+
+                        <svg class="w-5 h-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="ml-3">
+                        <h3 class="text-sm font-medium text-green-800">Updated!</h3>
+                        <div class="mt-2 text-sm text-green-700">
+                            <p>
+                                <li>{{ session()->get('updatedMessage') }}
+                                    {{ session()->forget('updatedMessage') }}</li>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
             <form wire:submit.prevent="submitForm">
                 <!-- PURCHASE REQUEST -->
                 @if ($process_type_id == 1)
@@ -292,14 +324,14 @@
                                         <select id="pr_office" wire:model="pr_office_id_submit"
                                             autocomplete="pr_office_id"
                                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
-                                            <option value="{{ $pr_office_id }}">{{$pr_office_abbr}} -
+                                            <option value="{{ $pr_office_id }}">{{ $pr_office_abbr }} -
                                                 {{ $pr_office_name }}
                                             </option>
                                             @foreach ($pr_office as $office)
-                                            @if($pr_office_name != $office->name)
+                                            @if ($pr_office_name != $office->name)
                                             <option wire:key="{{ $office->id }}" @click="dd($office_id_submit)"
                                                 value="{{ $office->id }}">
-                                                {{ $pr_office_abbr }} - {{$office->name }}
+                                                {{ $pr_office_abbr }} - {{ $office->name }}
                                             </option>
                                             @endif
                                             @endforeach
@@ -329,8 +361,9 @@
                                             <option value="{{ $pr_purchase_description_id }}">
                                                 {{ $pr_purchase_description_name }}
                                                 @foreach ($pr_purchase_description_particulars as $particulars)
-                                                @if($pr_purchase_description_name != $particulars->name)
-                                            <option value="{{ $particulars->id }}">{{ $particulars->name }}</option>
+                                                @if ($pr_purchase_description_name != $particulars->name)
+                                            <option value="{{ $particulars->id }}">{{ $particulars->name }}
+                                            </option>
                                             @endif
                                             @endforeach
                                         </select>
@@ -409,12 +442,13 @@
                                         <select id="po_office_id_submit" wire:model="po_office_id_submit"
                                             autocomplete="po_office_id"
                                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
-                                            <option value="{{ $po_office_id }}">{{$po_office_abbr}} -
+                                            <option value="{{ $po_office_id }}">{{ $po_office_abbr }} -
                                                 {{ $po_office_name }}
                                             </option>
                                             @foreach ($po_office as $office)
-                                            @if($po_office_name != $office->name)
-                                            <option value="{{ $office->id }}">{{ $office->abbr }} - {{$office->name }}
+                                            @if ($po_office_name != $office->name)
+                                            <option value="{{ $office->id }}">{{ $office->abbr }} -
+                                                {{ $office->name }}
                                             </option>
                                             @endif
                                             @endforeach
@@ -433,7 +467,7 @@
                                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             <option value="$purchase_description_id">{{ $po_purchase_description_name }}
                                                 @foreach ($po_purchase_description_particulars as $particulars)
-                                                @if($po_purchase_description_name != $particulars->name)
+                                                @if ($po_purchase_description_name != $particulars->name)
                                             <option value="{{ $particulars->id }}">{{ $particulars->name }}
                                             </option>
                                             @endif
@@ -475,10 +509,10 @@
                                         <select id="suppliers" wire:model="po_supplier_id_submit" name="suppliers"
                                             autocomplete="suppliers"
                                             class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                            <option value="{{ $po_supplier_id }}">{{$po_supplier_name}}</option>
+                                            <option value="{{ $po_supplier_id }}">{{ $po_supplier_name }}</option>
                                             @foreach ($po_suppliers as $suppliers)
-                                            @if($suppliers->name != $po_supplier_name)
-                                            <option value="{{ $suppliers->id }}"> {{$suppliers->name}}</option>
+                                            @if ($suppliers->name != $po_supplier_name)
+                                            <option value="{{ $suppliers->id }}"> {{ $suppliers->name }}</option>
                                             @endif
                                             @endforeach
                                         </select>
@@ -544,12 +578,13 @@
                                         <select id="voucher_office_id_submit" wire:model="voucher_office_id_submit"
                                             autocomplete="voucher_office_id_submit"
                                             class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
-                                            <option value="{{ $voucher_office_id }}">{{$voucher_office_abbr}} -
+                                            <option value="{{ $voucher_office_id }}">{{ $voucher_office_abbr }} -
                                                 {{ $voucher_office_name }}
                                             </option>
                                             @foreach ($voucher_office as $office)
-                                            @if($voucher_office_name != $office->name)
-                                            <option value="{{ $office->id }}">{{ $office->abbr }} - {{$office->name }}
+                                            @if ($voucher_office_name != $office->name)
+                                            <option value="{{ $office->id }}">{{ $office->abbr }} -
+                                                {{ $office->name }}
                                             </option>
                                             @endif
                                             @endforeach
@@ -568,7 +603,7 @@
                                             <option value="$voucher_purchase_description_id">
                                                 {{ $voucher_purchase_description_name }}
                                                 @foreach ($voucher_purchase_description_particulars as $particulars)
-                                                @if($voucher_purchase_description_name != $particulars->name)
+                                                @if ($voucher_purchase_description_name != $particulars->name)
                                             <option value="{{ $particulars->id }}">{{ $particulars->name }}
                                             </option>
                                             @endif
@@ -598,10 +633,10 @@
                                         <select id="suppliers" wire:model="voucher_payee_id_submit" name="suppliers"
                                             autocomplete="suppliers"
                                             class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                            <option value="{{ $voucher_payee_id }}">{{$voucher_payee_name}}</option>
+                                            <option value="{{ $voucher_payee_id }}">{{ $voucher_payee_name }}</option>
                                             @foreach ($voucher_payee as $suppliers)
-                                            @if($suppliers->name != $voucher_payee_name)
-                                            <option value="{{ $suppliers->id }}"> {{$suppliers->name}}</option>
+                                            @if ($suppliers->name != $voucher_payee_name)
+                                            <option value="{{ $suppliers->id }}"> {{ $suppliers->name }}</option>
                                             @endif
                                             @endforeach
                                         </select>
