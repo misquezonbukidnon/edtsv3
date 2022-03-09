@@ -149,7 +149,7 @@ class DocumentEdit extends Component
             $this->po_office_abbr = $query->office->abbr;
             $this->po_description = $query->description;
             $this->po_purchase_description_id = $query->purchase_description_id;
-            $this->voucher_purchase_description_id_submit = $query->purchase_description_id;
+            $this->po_purchase_description_id_submit = $query->purchase_description_id;
             $this->po_purchase_description_name = $query->purchaseDescription->name;
             $this->po_purchase_description_particulars = $purchaseDescriptionQuery;
             $this->po_office = $officeQuery;
@@ -244,11 +244,67 @@ class DocumentEdit extends Component
             break;
 
           case 2:
-            # code...
+          // validaion
+          $this->validate([
+            'date_of_entry' => ['required'],
+            'process_type_id' => ['required'],
+            'reference_id' => ['required'],
+            'sub_reference_id' => ['required'],
+            'office_id' => ['required'],
+            'purchase_description_id' => ['required'],
+            'description' => ['required'],
+            'lcb_amount' => ['required'],
+            'supplier_id' => ['required'],
+          ]);
+
+
+           // validated
+            $query->date_of_entry = $this->date_of_entry;
+            $query->process_type_id = $this->process_type_id;
+            $query->reference_id =  $this->po_reference_id;
+            $query->sub_reference_id = $this->po_sub_reference_id;
+            $query->office_id =   $this->po_office_id_submit;
+            $query->purchase_description_id = $this->po_purchase_description_id_submit;
+            $query->description = $this->po_description;
+            $query->lcb_amount = $this->po_lcb_amount;
+            $query->supplier_id =$this->po_supplier_id;
+            $query->user_id = auth()->user()->id;
+            $query->save();
+
+            $this->emit('updatedMessage');
+            session()->put('updatedMessage', 'Document successfully updated');
+            return redirect()->to("/document/edit/$query->id");
             break;
 
           case 3:
-            # code...
+             $this->validate([
+            'date_of_entry' => ['required'],
+            'process_type_id' => ['required'],
+            'reference_id' => ['required'],
+            'sub_reference_id' => ['required'],
+            'office_id' => ['required'],
+            'purchase_description_id' => ['required'],
+            'description' => ['required'],
+            'abc_amount' => ['required'],
+            'supplier_id' => ['required'],
+          ]);
+
+           // validated
+            $query->date_of_entry = $this->date_of_entry;
+            $query->process_type_id = $this->process_type_id;
+            $query->reference_id =  $this->voucher_reference_id;
+            $query->sub_reference_id = $this->voucher_sub_reference_id;
+            $query->office_id =   $this->voucher_office_id_submit;
+            $query->purchase_description_id = $this->voucher_purchase_description_id_submit;
+            $query->description = $this->voucher_purchase_description;
+            $query->abc_amount = $this->voucher_abc_amount;
+            $query->supplier_id =$this->voucher_payee_id_submit;
+            $query->user_id = auth()->user()->id;
+            $query->save();
+
+            $this->emit('updatedMessage');
+            session()->put('updatedMessage', 'Document successfully updated');
+            return redirect()->to("/document/edit/$query->id");
             break;
 
           default:
