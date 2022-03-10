@@ -218,8 +218,8 @@
                         <h3 class="text-sm font-medium text-red-800">There were errors with your submission</h3>
                         <div class="mt-2 text-sm text-red-700">
                             <ul role="list" class="pl-5 space-y-1 list-disc">
-                                <li>{{ session()->get('errorMessage') }}
-                                    {{ session()->forget('errorMessage') }}</li>
+                                <li>Notification
+                                    Reference number does not exist.</li>
                             </ul>
                         </div>
                     </div>
@@ -250,8 +250,8 @@
                         <h3 class="text-sm font-medium text-green-800">Success!</h3>
                         <div class="mt-2 text-sm text-green-700">
                             <p>
-                                <li>{{ session()->get('successMessage') }}
-                                    {{ session()->forget('successMessage') }}</li>
+                                <li>Notification
+                                    Document Successfully Created!</li>
                             </p>
                         </div>
                     </div>
@@ -270,7 +270,6 @@
                 x-transition:leave-end="opacity-0 transform scale-90" style="display: none;">
                 <div class="flex">
                     <div class="flex-shrink-0">
-
                         <svg class="w-5 h-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                             fill="currentColor" aria-hidden="true">
                             <path fill-rule="evenodd"
@@ -279,11 +278,11 @@
                         </svg>
                     </div>
                     <div class="ml-3">
-                        <h3 class="text-sm font-medium text-green-800">Updated!</h3>
+                        <h3 class="text-sm font-medium text-green-800">Notification</h3>
                         <div class="mt-2 text-sm text-green-700">
                             <p>
-                                <li>{{ session()->get('updatedMessage') }}
-                                    {{ session()->forget('updatedMessage') }}</li>
+                                <li>Document Successfully Updated!
+                                </li>
                             </p>
                         </div>
                     </div>
