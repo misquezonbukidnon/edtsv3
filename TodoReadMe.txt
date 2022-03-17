@@ -5,3 +5,5 @@ TODO:
 4. Document Process Status - Due, Overdue
 5. PR - Out for canvass, find a way to remove supplier from endorsement. Instead, create a status for "out for canvass".
 6. For complete PR, PO and vouchers, TDIP and Days Pending must be marked "Completed". 
+7. Endorsement - A user can decline an endorsement. If declined, the endorsement must be marked as "Declined" and return the endorsement back to its original endorser id
+8. Try to create stock data table without using external plugins. Use the newest table from livewire

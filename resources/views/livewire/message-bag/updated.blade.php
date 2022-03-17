@@ -19,8 +19,8 @@
                 <h3 class="text-sm font-medium text-green-800">Notification</h3>
                 <div class="mt-2 text-sm text-green-700">
                     <p>
-                        <li>Document Successfully Updated!
-                        </li>
+                        <li>{{ Session::get('updatedMessage') }}</li>
+                        {{ Session::forget('updatedMessage') }}
                     </p>
                 </div>
             </div>

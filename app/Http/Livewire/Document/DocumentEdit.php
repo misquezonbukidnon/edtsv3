@@ -217,77 +217,77 @@ class DocumentEdit extends Component
         // update document table
         switch ($this->process_type_id) {
           case 1:
-          // validaion
-          $this->validate([
-            'date_of_entry' => ['required'],
-            'description' => ['required'],
-            'office_id' => ['required'],
-            'purchase_description_id' => ['required'],
-            'abc_amount' => ['required'],
-          ]);
+            // validaion
+            $this->validate([
+              'date_of_entry' => ['required'],
+              'description' => ['required'],
+              'office_id' => ['required'],
+              'purchase_description_id' => ['required'],
+              'abc_amount' => ['required'],
+            ]);
 
-          // validated
-            $query->date_of_entry = $this->date_of_entry;
-            $query->reference_id = $this->pr_reference_id;
-            $query->description = $this->pr_description;
-            $query->process_type_id = $this->process_type_id;
-            $query->office_id =  $this->pr_office_id_submit;
-            $query->purchase_description_id = $this->pr_purchase_description_id_submit;
-            $query->abc_amount = $this->pr_abc_amount;
-            $query->user_id = auth()->user()->id;
-            $query->save();
+            // validated
+              $query->date_of_entry = $this->date_of_entry;
+              $query->reference_id = $this->pr_reference_id;
+              $query->description = $this->pr_description;
+              $query->process_type_id = $this->process_type_id;
+              $query->office_id =  $this->pr_office_id_submit;
+              $query->purchase_description_id = $this->pr_purchase_description_id_submit;
+              $query->abc_amount = $this->pr_abc_amount;
+              $query->user_id = auth()->user()->id;
+              $query->save();
 
-          // reference code
-            $this->emit('updatedMessage');
-            session()->put('updatedMessage', 'Document successfully updated');
-            return redirect()->to("/document/edit/$query->id");
-            break;
+            // reference code
+              $this->emit('updatedMessage');
+              session()->put('updatedMessage', 'Document successfully updated');
+              return redirect()->to("/document/edit/$query->id");
+          break;
 
           case 2:
-          // validaion
-          $this->validate([
-            'date_of_entry' => ['required'],
-            'process_type_id' => ['required'],
-            'reference_id' => ['required'],
-            'sub_reference_id' => ['required'],
-            'office_id' => ['required'],
-            'purchase_description_id' => ['required'],
-            'description' => ['required'],
-            'lcb_amount' => ['required'],
-            'supplier_id' => ['required'],
-          ]);
+            // validaion
+            $this->validate([
+              'date_of_entry' => ['required'],
+              'process_type_id' => ['required'],
+              'reference_id' => ['required'],
+              'sub_reference_id' => ['required'],
+              'office_id' => ['required'],
+              'purchase_description_id' => ['required'],
+              'description' => ['required'],
+              'lcb_amount' => ['required'],
+              'supplier_id' => ['required'],
+            ]);
 
 
-           // validated
-            $query->date_of_entry = $this->date_of_entry;
-            $query->process_type_id = $this->process_type_id;
-            $query->reference_id =  $this->po_reference_id;
-            $query->sub_reference_id = $this->po_sub_reference_id;
-            $query->office_id =   $this->po_office_id_submit;
-            $query->purchase_description_id = $this->po_purchase_description_id_submit;
-            $query->description = $this->po_description;
-            $query->lcb_amount = $this->po_lcb_amount;
-            $query->supplier_id =$this->po_supplier_id;
-            $query->user_id = auth()->user()->id;
-            $query->save();
+            // validated
+              $query->date_of_entry = $this->date_of_entry;
+              $query->process_type_id = $this->process_type_id;
+              $query->reference_id =  $this->po_reference_id;
+              $query->sub_reference_id = $this->po_sub_reference_id;
+              $query->office_id =   $this->po_office_id_submit;
+              $query->purchase_description_id = $this->po_purchase_description_id_submit;
+              $query->description = $this->po_description;
+              $query->lcb_amount = $this->po_lcb_amount;
+              $query->supplier_id =$this->po_supplier_id;
+              $query->user_id = auth()->user()->id;
+              $query->save();
 
-            $this->emit('updatedMessage');
-            session()->put('updatedMessage', 'Document successfully updated');
-            return redirect()->to("/document/edit/$query->id");
-            break;
+              $this->emit('updatedMessage');
+              session()->put('updatedMessage', 'Document successfully updated');
+              return redirect()->to("/document/edit/$query->id");
+          break;
 
           case 3:
-             $this->validate([
-            'date_of_entry' => ['required'],
-            'process_type_id' => ['required'],
-            'reference_id' => ['required'],
-            'sub_reference_id' => ['required'],
-            'office_id' => ['required'],
-            'purchase_description_id' => ['required'],
-            'description' => ['required'],
-            'abc_amount' => ['required'],
-            'supplier_id' => ['required'],
-          ]);
+            $this->validate([
+              'date_of_entry' => ['required'],
+              'process_type_id' => ['required'],
+              'reference_id' => ['required'],
+              'sub_reference_id' => ['required'],
+              'office_id' => ['required'],
+              'purchase_description_id' => ['required'],
+              'description' => ['required'],
+              'abc_amount' => ['required'],
+              'supplier_id' => ['required'],
+            ]);
 
            // validated
             $query->date_of_entry = $this->date_of_entry;
@@ -302,10 +302,11 @@ class DocumentEdit extends Component
             $query->user_id = auth()->user()->id;
             $query->save();
 
+
             $this->emit('updatedMessage');
             session()->put('updatedMessage', 'Document successfully updated');
             return redirect()->to("/document/edit/$query->id");
-            break;
+          break;
 
           default:
             // send error message

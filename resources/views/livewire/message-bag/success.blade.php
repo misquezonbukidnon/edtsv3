@@ -20,8 +20,8 @@
                 <h3 class="text-sm font-medium text-green-800">Success!</h3>
                 <div class="mt-2 text-sm text-green-700">
                     <p>
-                        <li>Notification
-                            Document Successfully Created!</li>
+                        <li>{{ Session::get('successMessage') }}</li>
+                        {{ Session::forget('successMessage') }}
                     </p>
                 </div>
             </div>
