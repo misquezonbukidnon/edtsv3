@@ -43,10 +43,10 @@
                 </p>
             </div>
             @if (session()->has('errorMessage'))
-                <livewire:message-bag.error />
+            <livewire:message-bag.error />
             @endif
             @if (session()->has('successMessage'))
-                <livewire:message-bag.success />
+            <livewire:message-bag.success />
             @endif
             <div class="px-4 py-5 border-t border-gray-200 sm:p-0">
                 <div class="mt-5 md:mt-0 md:col-span-2">
@@ -62,7 +62,7 @@
                                         <input type="date" wire:model="date_of_entry" id="dateofentry"
                                             class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('date_of_entry') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                         @error('date_of_entry')
-                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                         @enderror
                                     </div>
 
@@ -153,14 +153,14 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Click to Select</option>
                                                     @foreach ($office as $office)
-                                                        <option value="{{ $office->id }}">{{ $office->abbr }} -
-                                                            {{ $office->name }}
-                                                        </option>
+                                                    <option value="{{ $office->id }}">{{ $office->abbr }} -
+                                                        {{ $office->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('office_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -182,7 +182,7 @@
                                                 </select>
                                             </div>
                                             @error('fund')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -200,7 +200,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('reference_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('reference_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -214,14 +214,14 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Click to Select</option>
                                                     @foreach ($purchase_description as $particulars)
-                                                        <option value="{{ $particulars->id }}">
-                                                            {{ $particulars->name }}
-                                                        </option>
+                                                    <option value="{{ $particulars->id }}">
+                                                        {{ $particulars->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('purchase_description_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -236,7 +236,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('description') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('description')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -250,7 +250,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('abc_amount') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('abc_amount')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
@@ -287,7 +287,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('reference_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('reference_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -304,7 +304,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('sub_reference_id_purchase_order') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('sub_reference_id_purchase_order')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -318,14 +318,14 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('canvasser_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Select Canvasser</option>
                                                     @foreach ($canvasser as $canvasser)
-                                                        <option value="{{ $canvasser->id }}">
-                                                            {{ $canvasser->name }}
-                                                        </option>
+                                                    <option value="{{ $canvasser->id }}">
+                                                        {{ $canvasser->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('canvasser_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -339,14 +339,14 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Select Office</option>
                                                     @foreach ($office_voucher as $office)
-                                                        <option value="{{ $office->id }}">{{ $office->abbr }} -
-                                                            {{ $office->name }}
-                                                        </option>
+                                                    <option value="{{ $office->id }}">{{ $office->abbr }} -
+                                                        {{ $office->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('office_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -360,14 +360,14 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Select Particulars</option>
                                                     @foreach ($purchase_description_po as $particulars)
-                                                        <option value="{{ $particulars->id }}">
-                                                            {{ $particulars->name }}
-                                                        </option>
+                                                    <option value="{{ $particulars->id }}">
+                                                        {{ $particulars->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('purchase_description_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -382,13 +382,12 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('description') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('description')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
                                         <div class="sm:col-span-6">
-                                            <label for="contract-price"
-                                                class="block text-sm font-medium text-gray-700">
+                                            <label for="contract-price" class="block text-sm font-medium text-gray-700">
                                                 Contract Price
                                             </label>
                                             <div class="mt-1">
@@ -397,7 +396,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('lcb_amount') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('lcb_amount')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -411,13 +410,13 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Select Supplier</option>
                                                     @foreach ($supplier as $supplier)
-                                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}
-                                                        </option>
+                                                    <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('supplier_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
                                     </div>
@@ -438,7 +437,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('reference_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('reference_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -455,7 +454,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('sub_reference_id_voucher') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('sub_reference_id_voucher')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -469,14 +468,14 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('office_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Select Office</option>
                                                     @foreach ($office_voucher as $office)
-                                                        <option value="{{ $office->id }}">{{ $office->abbr }} -
-                                                            {{ $office->name }}
-                                                        </option>
+                                                    <option value="{{ $office->id }}">{{ $office->abbr }} -
+                                                        {{ $office->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('office_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -490,14 +489,14 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Select Particulars</option>
                                                     @foreach ($purchase_description_voucher as $particulars)
-                                                        <option value="{{ $particulars->id }}">
-                                                            {{ $particulars->name }}
-                                                        </option>
+                                                    <option value="{{ $particulars->id }}">
+                                                        {{ $particulars->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('purchase_description_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -512,13 +511,12 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('description') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('description')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
                                         <div class="sm:col-span-6">
-                                            <label for="contract-price"
-                                                class="block text-sm font-medium text-gray-700">
+                                            <label for="contract-price" class="block text-sm font-medium text-gray-700">
                                                 Contract Price
                                             </label>
                                             <div class="mt-1">
@@ -527,7 +525,7 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('lcb_amount') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                             </div>
                                             @error('lcb_amount')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -541,13 +539,13 @@
                                                     class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md @error('purchase_description_id') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:ring-red @enderror">
                                                     <option>Select Supplier</option>
                                                     @foreach ($supplier_voucher as $supplier)
-                                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}
-                                                        </option>
+                                                    <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                    </option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                             @error('supplier_id')
-                                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -583,7 +581,7 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                     <div class="p-5 overflow-hidden border-b border-gray-100 shadow sm:rounded-lg">
-                        <livewire:document-table wire:poll.1000ms />
+                        <livewire:document.tailwind-table />
                     </div>
                 </div>
             </div>
