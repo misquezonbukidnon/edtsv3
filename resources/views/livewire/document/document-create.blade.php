@@ -578,9 +578,9 @@
 
 
         <div class="flex flex-col ">
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                    <div class="p-5 overflow-hidden border-b border-gray-100 shadow sm:rounded-lg">
+            <div class="-my-2  overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="inline-block  min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                    <div class="py-5 bg-white overflow-hidden border-b border-gray-100 shadow sm:rounded-lg">
                         <livewire:document.tailwind-table />
                     </div>
                 </div>
