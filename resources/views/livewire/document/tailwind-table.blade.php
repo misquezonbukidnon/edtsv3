@@ -8,11 +8,6 @@
                     Reference ID,
                     Process, Description, Supplier and Status.</p>
             </div>
-            <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
-                <button type="button"
-                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add
-                    user</button>
-            </div>
         </div>
         <div class="flex flex-col mt-8">
             <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -109,30 +104,34 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <!-- Selected: "bg-gray-50" -->
-                                <tr>
-                                    <td class="relative w-12 px-6 sm:w-16 sm:px-8">
-                                        <!-- Selected row marker, only show when row is selected. -->
-                                        <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
+                                @foreach ($documentArray as $document)
+                                    <tr>
+                                        <td class="relative w-12 px-6 sm:w-16 sm:px-8">
+                                            <!-- Selected row marker, only show when row is selected. -->
+                                            <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
 
-                                        <input type="checkbox"
-                                            class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
-                                    </td>
-                                    <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
-                                    <td class="py-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap">PR-001
-                                    </td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">Purchase Request
-                                    </td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">Ivan Store
-                                    </td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">For porn videos
-                                    </td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">Pending
-                                    </td>
-                                    <td class="py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                    </td>
-                                </tr>
-
+                                            <input type="checkbox"
+                                                class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
+                                        </td>
+                                        <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
+                                        <td class="py-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                            {{ $document->reference_id }}</td>
+                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            {{ $document->proccessType->name }}</td>
+                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            {{ $document->office->name }}</td>
+                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            {{ $document->purchaseDescription->name }}
+                                        </td>
+                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            {{ $document->status->name }}
+                                        </td>
+                                        <td
+                                            class="py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 <!-- More people... -->
                             </tbody>
                         </table>
