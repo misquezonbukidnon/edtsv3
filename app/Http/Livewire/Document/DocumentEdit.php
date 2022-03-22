@@ -65,8 +65,6 @@ class DocumentEdit extends Component
     public $voucher_payee;
     public $voucher_abc_amount;
 
-
-
     // For Displaying Data
     public $date_of_entry;
     public $reference_id;
