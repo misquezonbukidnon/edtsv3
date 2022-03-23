@@ -14,7 +14,8 @@
                 <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                     <div class="relative overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
                         <!-- Selected row actions, only show when rows are selected. -->
-                        <div class="absolute top-0 flex items-center h-12 space-x-3 left-12 bg-gray-50 sm:left-16">
+                        <div
+                            class="hidden absolute top-0 flex items-center h-12 space-x-3 left-12 bg-gray-50 sm:left-16">
                             <button type="button"
                                 class="inline-flex items-center rounded border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-30">Bulk
                                 edit</button>
@@ -33,7 +34,8 @@
                                     <th scope="col"
                                         class="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">
                                         Ref. #</th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                    <th scope="col"
+                                        class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         <a href="#" class="inline-flex group">
                                             Process
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
@@ -49,12 +51,13 @@
                                             </span>
                                         </a>
                                     </th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                    <th scope="col"
+                                        class="  lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         <a href="#" class="inline-flex group">
                                             End User
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
                                             <span
-                                                class="flex-none ml-2 text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
+                                                class=" hidden lg:table-cell flex-none ml-2 w-auto h-auto text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
                                                 <!-- Heroicon name: solid/chevron-down -->
                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -65,7 +68,8 @@
                                             </span>
                                         </a>
                                     </th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                    <th scope="col"
+                                        class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         <a href="#" class="inline-flex group">
                                             Description
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
@@ -81,7 +85,8 @@
                                             </span>
                                         </a>
                                     </th>
-                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                    <th scope="col"
+                                        class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                         <a href="#" class="inline-flex group">
                                             Status
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
@@ -114,19 +119,35 @@
                                             class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
                                     </td>
                                     <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
-                                    <td class="py-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                        {{ $document->reference_id }}</td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                    <td
+                                        class="w-full max-w-0 py-4 pl-4 pr-3 text-sm mr-5 font-medium text-gray-900 sm:w-100 sm:max-w-75 sm:pl-6">
+                                        {{ $document->reference_id }}
+                                        <dl class="font-normal  w-100  lg:hidden">
+                                            <dt class="text-sm mt-2 font-medium text-green-900 ">Process Type: </dt>
+                                            <dd class=text-gray-700">{{ $document->proccessType->name }}
+                                            </dd>
+                                            <dt class="text-sm mt-2 font-medium text-green-900 ">Description: </dt>
+                                            <dd class=text-gray-500 sm:hidden">
+                                                {{ $document->purchaseDescription->name }}
+                                            </dd>
+                                            <dt class="text-sm mt-2 font-medium text-green-900 ">Status: </dt>
+                                            <dd class=text-gray-500 sm:hidden">
+                                                {{ $document->status->name }}
+                                            </dd>
+                                        </dl>
+                                    </td>
+
+                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->proccessType->name }}</td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 ">
+                                    <td class=" px-3 py-4 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->office->name }}</td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 ">
+                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->purchaseDescription->name }}
                                     </td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->status->name }}
                                     </td>
-                                    <td class="py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
+                                    <td class=" px-3 py-4 text-sm text-gray-500 sm:table-cell">
                                         <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                     </td>
                                 </tr>
