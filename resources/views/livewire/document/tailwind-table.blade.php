@@ -105,32 +105,31 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <!-- Selected: "bg-gray-50" -->
                                 @foreach ($documentArray as $document)
-                                    <tr>
-                                        <td class="relative w-12 px-6 sm:w-16 sm:px-8">
-                                            <!-- Selected row marker, only show when row is selected. -->
-                                            <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
+                                <tr>
+                                    <td class="relative w-12 px-6 sm:w-16 sm:px-8">
+                                        <!-- Selected row marker, only show when row is selected. -->
+                                        <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
 
-                                            <input type="checkbox"
-                                                class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
-                                        </td>
-                                        <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
-                                        <td class="py-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                            {{ $document->reference_id }}</td>
-                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $document->proccessType->name }}</td>
-                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $document->office->name }}</td>
-                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $document->purchaseDescription->name }}
-                                        </td>
-                                        <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            {{ $document->status->name }}
-                                        </td>
-                                        <td
-                                            class="py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                        </td>
-                                    </tr>
+                                        <input type="checkbox"
+                                            class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
+                                    </td>
+                                    <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
+                                    <td class="py-4 pr-3 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                        {{ $document->reference_id }}</td>
+                                    <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                        {{ $document->proccessType->name }}</td>
+                                    <td class="px-3 py-4 text-sm text-gray-500 ">
+                                        {{ $document->office->name }}</td>
+                                    <td class="px-3 py-4 text-sm text-gray-500 ">
+                                        {{ $document->purchaseDescription->name }}
+                                    </td>
+                                    <td class="px-3 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                        {{ $document->status->name }}
+                                    </td>
+                                    <td class="py-4 pl-3 pr-4 text-sm font-medium text-right whitespace-nowrap sm:pr-6">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    </td>
+                                </tr>
                                 @endforeach
                                 <!-- More people... -->
                             </tbody>
