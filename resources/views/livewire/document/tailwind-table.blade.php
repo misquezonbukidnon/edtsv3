@@ -2,18 +2,43 @@
 
     <div class="px-4 sm:px-5 lg:px-6">
         <div class="sm:flex sm:items-center">
-            <div class="sm:flex-auto">
-                <h1 class="text-xl font-semibold text-gray-900">Documents</h1>
-                <p class="mt-2 text-sm text-gray-700">A list of all the Documents in your account including their
-                    Reference ID,
-                    Process, Description, Supplier and Status.</p>
-            </div>
+
         </div>
         <div class="flex justify-end">
-            <input type="text" wire:model="search"
-                class="text-right border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                placeholder="Search">
+            <div class="mr-1">
+                <select id="results" name="results"
+                    class="mt-1 block pl-3 w-auto pr-10 py-2 text-base  focus:ring-black focus:border-black sm:text-sm rounded-md">
+                    <option selected>10</option>
+                    <option>20</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+            </div>
+            <div class="mr-1">
+                <select id="processtypes" name="processtypes"
+                    class="mt-1 block pl-3 w-auto pr-10 py-2 text-base  focus:ring-black focus:border-black sm:text-sm rounded-md">
+                    <option selected>Select Process Type</option>
+                    <option>Purchase Request</option>
+                    <option>Purchase Order</option>
+                    <option>Voucher</option>
+                </select>
+            </div>
+            <div class="mt-1 relative rounded-md shadow-sm">
+                <input type="text" wire:model="search"
+                    class="block  pr-10 border-black focus:outline-none focus:ring-black focus:border-black sm:text-sm rounded-md"
+                    placeholder="Search">
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <!-- Heroicon name: solid/exclamation-circle -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
         </div>
+
+
         <div class="flex flex-col mt-8">
             <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -114,47 +139,47 @@
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <!-- Selected: "bg-gray-50" -->
                                 @foreach ($documents as $document)
-                                    <tr>
-                                        <td class="relative w-12 px-6 sm:w-16 sm:px-8">
-                                            <!-- Selected row marker, only show when row is selected. -->
-                                            <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
+                                <tr>
+                                    <td class="relative w-12 px-6 sm:w-16 sm:px-8">
+                                        <!-- Selected row marker, only show when row is selected. -->
+                                        <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
 
-                                            <input type="checkbox"
-                                                class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
-                                        </td>
-                                        <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
-                                        <td
-                                            class="w-full py-4 pl-4 pr-3 mr-5 text-sm font-medium text-gray-900 max-w-0 sm:w-100 sm:max-w-75 sm:pl-6">
-                                            {{ $document->reference_id }}
-                                            <dl class="font-normal w-100 lg:hidden">
-                                                <dt class="mt-2 text-sm font-medium text-green-900 ">Process Type: </dt>
-                                                <dd class=text-gray-700">{{ $document->proccessType->name }}
-                                                </dd>
-                                                <dt class="mt-2 text-sm font-medium text-green-900 ">Description: </dt>
-                                                <dd class=text-gray-500 sm:hidden">
-                                                    {{ $document->purchaseDescription->name }}
-                                                </dd>
-                                                <dt class="mt-2 text-sm font-medium text-green-900 ">Status: </dt>
-                                                <dd class=text-gray-500 sm:hidden">
-                                                    {{ $document->status->name }}
-                                                </dd>
-                                            </dl>
-                                        </td>
+                                        <input type="checkbox"
+                                            class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
+                                    </td>
+                                    <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
+                                    <td
+                                        class="w-full py-4 pl-4 pr-3 mr-5 text-sm font-medium text-gray-900 max-w-0 sm:w-100 sm:max-w-75 sm:pl-6">
+                                        {{ $document->reference_id }}
+                                        <dl class="font-normal w-100 lg:hidden">
+                                            <dt class="mt-2 text-sm font-medium text-green-900 ">Process Type: </dt>
+                                            <dd class=text-gray-700">{{ $document->proccessType->name }}
+                                            </dd>
+                                            <dt class="mt-2 text-sm font-medium text-green-900 ">Description: </dt>
+                                            <dd class=text-gray-500 sm:hidden">
+                                                {{ $document->purchaseDescription->name }}
+                                            </dd>
+                                            <dt class="mt-2 text-sm font-medium text-green-900 ">Status: </dt>
+                                            <dd class=text-gray-500 sm:hidden">
+                                                {{ $document->status->name }}
+                                            </dd>
+                                        </dl>
+                                    </td>
 
-                                        <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                            {{ $document->proccessType->name }}</td>
-                                        <td class="px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                            {{ $document->office->name }}</td>
-                                        <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                            {{ $document->purchaseDescription->name }}
-                                        </td>
-                                        <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                            {{ $document->status->name }}
-                                        </td>
-                                        <td class="px-3 py-4 text-sm text-gray-500 sm:table-cell">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                        </td>
-                                    </tr>
+                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                        {{ $document->proccessType->name }}</td>
+                                    <td class="px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                        {{ $document->office->name }}</td>
+                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                        {{ $document->purchaseDescription->name }}
+                                    </td>
+                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                        {{ $document->status->name }}
+                                    </td>
+                                    <td class="px-3 py-4 text-sm text-gray-500 sm:table-cell">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    </td>
+                                </tr>
                                 @endforeach
                                 <!-- More people... -->
                             </tbody>
