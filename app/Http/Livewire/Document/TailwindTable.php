@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Document;
 
 use Livewire\Component;
 use App\Models\Document;
+use Livewire\WithPagination;
 
 class TailwindTable extends Component
 {
+    use WithPagination;
     public $documentArray;
+    public $paginateValue;
+    public $search;
 
     public function mount()
     {
@@ -20,6 +24,8 @@ class TailwindTable extends Component
 
     public function render()
     {
-        return view('livewire.document.tailwind-table');
+        return view('livewire.document.tailwind-table', [
+            'documents' => Document::where('reference_id', 'like', '%'.$this->search.'%')->paginate(10),
+        ]);
     }
 }

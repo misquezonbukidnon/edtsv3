@@ -9,13 +9,18 @@
                     Process, Description, Supplier and Status.</p>
             </div>
         </div>
+        <div class="flex justify-end">
+            <input type="text" wire:model="search"
+                class="text-right border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Search">
+        </div>
         <div class="flex flex-col mt-8">
             <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                     <div class="relative overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
                         <!-- Selected row actions, only show when rows are selected. -->
                         <div
-                            class="hidden absolute top-0 flex items-center h-12 space-x-3 left-12 bg-gray-50 sm:left-16">
+                            class="absolute top-0 flex items-center hidden h-12 space-x-3 left-12 bg-gray-50 sm:left-16">
                             <button type="button"
                                 class="inline-flex items-center rounded border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-30">Bulk
                                 edit</button>
@@ -23,7 +28,6 @@
                                 class="inline-flex items-center rounded border border-gray-300 bg-white px-2.5 py-1.5 text-xs font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-30">Delete
                                 all</button>
                         </div>
-
                         <table class="min-w-full divide-y divide-gray-300 table-fixed">
                             <thead class="bg-gray-50">
                                 <tr>
@@ -57,7 +61,7 @@
                                             End User
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
                                             <span
-                                                class=" hidden lg:table-cell flex-none ml-2 w-auto h-auto text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
+                                                class="flex-none hidden w-auto h-auto ml-2 text-gray-900 bg-gray-200 rounded lg:table-cell group-hover:bg-gray-300">
                                                 <!-- Heroicon name: solid/chevron-down -->
                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
                                                     viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -109,52 +113,55 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <!-- Selected: "bg-gray-50" -->
-                                @foreach ($documentArray as $document)
-                                <tr>
-                                    <td class="relative w-12 px-6 sm:w-16 sm:px-8">
-                                        <!-- Selected row marker, only show when row is selected. -->
-                                        <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
+                                @foreach ($documents as $document)
+                                    <tr>
+                                        <td class="relative w-12 px-6 sm:w-16 sm:px-8">
+                                            <!-- Selected row marker, only show when row is selected. -->
+                                            <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
 
-                                        <input type="checkbox"
-                                            class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
-                                    </td>
-                                    <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
-                                    <td
-                                        class="w-full max-w-0 py-4 pl-4 pr-3 text-sm mr-5 font-medium text-gray-900 sm:w-100 sm:max-w-75 sm:pl-6">
-                                        {{ $document->reference_id }}
-                                        <dl class="font-normal  w-100  lg:hidden">
-                                            <dt class="text-sm mt-2 font-medium text-green-900 ">Process Type: </dt>
-                                            <dd class=text-gray-700">{{ $document->proccessType->name }}
-                                            </dd>
-                                            <dt class="text-sm mt-2 font-medium text-green-900 ">Description: </dt>
-                                            <dd class=text-gray-500 sm:hidden">
-                                                {{ $document->purchaseDescription->name }}
-                                            </dd>
-                                            <dt class="text-sm mt-2 font-medium text-green-900 ">Status: </dt>
-                                            <dd class=text-gray-500 sm:hidden">
-                                                {{ $document->status->name }}
-                                            </dd>
-                                        </dl>
-                                    </td>
+                                            <input type="checkbox"
+                                                class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
+                                        </td>
+                                        <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
+                                        <td
+                                            class="w-full py-4 pl-4 pr-3 mr-5 text-sm font-medium text-gray-900 max-w-0 sm:w-100 sm:max-w-75 sm:pl-6">
+                                            {{ $document->reference_id }}
+                                            <dl class="font-normal w-100 lg:hidden">
+                                                <dt class="mt-2 text-sm font-medium text-green-900 ">Process Type: </dt>
+                                                <dd class=text-gray-700">{{ $document->proccessType->name }}
+                                                </dd>
+                                                <dt class="mt-2 text-sm font-medium text-green-900 ">Description: </dt>
+                                                <dd class=text-gray-500 sm:hidden">
+                                                    {{ $document->purchaseDescription->name }}
+                                                </dd>
+                                                <dt class="mt-2 text-sm font-medium text-green-900 ">Status: </dt>
+                                                <dd class=text-gray-500 sm:hidden">
+                                                    {{ $document->status->name }}
+                                                </dd>
+                                            </dl>
+                                        </td>
 
-                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                        {{ $document->proccessType->name }}</td>
-                                    <td class=" px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                        {{ $document->office->name }}</td>
-                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                        {{ $document->purchaseDescription->name }}
-                                    </td>
-                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
-                                        {{ $document->status->name }}
-                                    </td>
-                                    <td class=" px-3 py-4 text-sm text-gray-500 sm:table-cell">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                    </td>
-                                </tr>
+                                        <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                            {{ $document->proccessType->name }}</td>
+                                        <td class="px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                            {{ $document->office->name }}</td>
+                                        <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                            {{ $document->purchaseDescription->name }}
+                                        </td>
+                                        <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                            {{ $document->status->name }}
+                                        </td>
+                                        <td class="px-3 py-4 text-sm text-gray-500 sm:table-cell">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 <!-- More people... -->
                             </tbody>
                         </table>
+                        <div class="px-10 mx-auto mt-10 mb-10">
+                            {{ $documents->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
