@@ -12,6 +12,9 @@ class TailwindTable extends Component
     public $documentArray;
     public $paginateValue;
     public $search;
+    public $filterByProcessType;
+    public $sortField;
+    public $sortAsc = true;
 
     public function mount()
     {
@@ -22,10 +25,26 @@ class TailwindTable extends Component
         $this->documentArray = $query;
     }
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatedFilterByProcessType()
+    {
+        if ($this->filterByProcessType == 0) {
+            $this->filterByProcessType = '';
+            $this->resetPage();
+        }
+    }
+
     public function render()
     {
         return view('livewire.document.tailwind-table', [
-            'documents' => Document::where('reference_id', 'like', '%'.$this->search.'%')->paginate(10),
+            'documents' => Document::where(function ($query) {
+                $query->where('reference_id', 'like', '%' . $this->search . '%')
+                ->where('process_type_id', 'like', '%' . $this->filterByProcessType . '%');
+            })->paginate($this->paginateValue),
         ]);
     }
 }

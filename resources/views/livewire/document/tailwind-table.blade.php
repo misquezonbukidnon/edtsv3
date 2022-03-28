@@ -6,8 +6,8 @@
         </div>
         <div class="flex justify-end">
             <div class="mr-1">
-                <select id="results" name="results"
-                    class="mt-1 block pl-3 w-auto pr-10 py-2 text-base  focus:ring-black focus:border-black sm:text-sm rounded-md">
+                <select id="results" wire:model="paginateValue"
+                    class="block w-auto py-2 pl-3 pr-10 mt-1 text-base rounded-md focus:ring-black focus:border-black sm:text-sm">
                     <option selected>10</option>
                     <option>20</option>
                     <option>50</option>
@@ -15,21 +15,21 @@
                 </select>
             </div>
             <div class="mr-1">
-                <select id="processtypes" name="processtypes"
-                    class="mt-1 block pl-3 w-auto pr-10 py-2 text-base  focus:ring-black focus:border-black sm:text-sm rounded-md">
-                    <option selected>Select Process Type</option>
-                    <option>Purchase Request</option>
-                    <option>Purchase Order</option>
-                    <option>Voucher</option>
+                <select id="processtypes" wire:model="filterByProcessType"
+                    class="block w-auto py-2 pl-3 pr-10 mt-1 text-base rounded-md focus:ring-black focus:border-black sm:text-sm">
+                    <option value="0">Select Process Type</option>
+                    <option value="1">Purchase Request</option>
+                    <option value="2">Purchase Order</option>
+                    <option value="3">Voucher</option>
                 </select>
             </div>
-            <div class="mt-1 relative rounded-md shadow-sm">
+            <div class="relative mt-1 rounded-md shadow-sm">
                 <input type="text" wire:model="search"
-                    class="block  pr-10 border-black focus:outline-none focus:ring-black focus:border-black sm:text-sm rounded-md"
+                    class="block pr-10 border-black rounded-md focus:outline-none focus:ring-black focus:border-black sm:text-sm"
                     placeholder="Search">
-                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                     <!-- Heroicon name: solid/exclamation-circle -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -68,7 +68,7 @@
                                         <a href="#" class="inline-flex group">
                                             Process
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
-                                            <span
+                                            <button
                                                 class="flex-none ml-2 text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
                                                 <!-- Heroicon name: solid/chevron-down -->
                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@
                                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                                         clip-rule="evenodd" />
                                                 </svg>
-                                            </span>
+                                            </button>
                                         </a>
                                     </th>
                                     <th scope="col"
@@ -85,7 +85,7 @@
                                         <a href="#" class="inline-flex group">
                                             End User
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
-                                            <span
+                                            <button
                                                 class="flex-none hidden w-auto h-auto ml-2 text-gray-900 bg-gray-200 rounded lg:table-cell group-hover:bg-gray-300">
                                                 <!-- Heroicon name: solid/chevron-down -->
                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@
                                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                                         clip-rule="evenodd" />
                                                 </svg>
-                                            </span>
+                                            </button>
                                         </a>
                                     </th>
                                     <th scope="col"
@@ -102,7 +102,7 @@
                                         <a href="#" class="inline-flex group">
                                             Description
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
-                                            <span
+                                            <button
                                                 class="flex-none ml-2 text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
                                                 <!-- Heroicon name: solid/chevron-down -->
                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@
                                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                                         clip-rule="evenodd" />
                                                 </svg>
-                                            </span>
+                                            </button>
                                         </a>
                                     </th>
                                     <th scope="col"
@@ -119,7 +119,7 @@
                                         <a href="#" class="inline-flex group">
                                             Status
                                             <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
-                                            <span
+                                            <button
                                                 class="flex-none ml-2 text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
                                                 <!-- Heroicon name: solid/chevron-down -->
                                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
@@ -128,11 +128,11 @@
                                                         d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                                         clip-rule="evenodd" />
                                                 </svg>
-                                            </span>
+                                            </button>
                                         </a>
                                     </th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                                        <span class="sr-only">Edit</span>
+                                        <button class="sr-only">Edit</button>
                                     </th>
                                 </tr>
                             </thead>
