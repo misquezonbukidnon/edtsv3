@@ -47,46 +47,48 @@
                                     </thead>
                                     <tbody>
                                         <!-- Odd row -->
-                                        @foreach($documentArray as $document)
-                                        <tr class="bg-white">
-                                            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                                {{ $document->date_of_entry }}
-                                            </td>
-                                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                                {{ $document->reference_id }}
-                                            </td>
-                                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                                {{ $document->proccessType->name }}
-                                            </td>
-                                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                                {{ $document->office->name }}
-                                            </td>
-                                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                                {{ $document->purchaseDescription->name }}
-                                            </td>
-                                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                                Not Endorsed
-                                            </td>
-                                            <td class="flex px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                                <a href="/endorsement/create/69"
-                                                    class="mr-2 text-indigo-600 hover:text-indigo-900">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
-                                                    </svg>
-                                                </a>
-                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2"
-                                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                                    </svg>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        @foreach ($documentArray as $document)
+                                            <tr class="bg-white">
+                                                <td
+                                                    class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                                    {{ $document->date_of_entry }}
+                                                </td>
+                                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                    {{ $document->reference_id }}
+                                                </td>
+                                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                    {{ $document->proccessType->name }}
+                                                </td>
+                                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                    {{ $document->office->name }}
+                                                </td>
+                                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                    {{ $document->purchaseDescription->name }}
+                                                </td>
+                                                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                    Not Endorsed
+                                                </td>
+                                                <td
+                                                    class="flex px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                                                    <a href="/endorsement/create/{{ $document->id }}"
+                                                        class="mr-2 text-indigo-600 hover:text-indigo-900">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+                                                        </svg>
+                                                    </a>
+                                                    <a href="#" class="text-indigo-600 hover:text-indigo-900">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                                        </svg>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
