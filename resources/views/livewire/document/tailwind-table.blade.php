@@ -56,12 +56,8 @@
                         <table class="min-w-full divide-y divide-gray-300 table-fixed">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="relative w-12 px-6 sm:w-16 sm:px-8">
-                                        <input type="checkbox"
-                                            class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
-                                    </th>
                                     <th scope="col"
-                                        class="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">
+                                        class="min-w-[12rem] py-3.5 pr-3 pl-6 text-left text-sm font-semibold text-gray-900">
                                         Ref. #</th>
                                     <th scope="col"
                                         class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
@@ -140,16 +136,10 @@
                                 <!-- Selected: "bg-gray-50" -->
                                 @foreach ($documents as $document)
                                 <tr>
-                                    <td class="relative w-12 px-6 sm:w-16 sm:px-8">
-                                        <!-- Selected row marker, only show when row is selected. -->
-                                        <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
-
-                                        <input type="checkbox"
-                                            class="absolute w-4 h-4 -mt-2 text-indigo-600 border-gray-300 rounded left-4 top-1/2 focus:ring-indigo-500 sm:left-6">
-                                    </td>
                                     <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
                                     <td
                                         class="w-full py-4 pl-4 pr-3 mr-5 text-sm font-medium text-gray-900 max-w-0 sm:w-100 sm:max-w-75 sm:pl-6">
+                                        <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
                                         {{ $document->reference_id }}
                                         <dl class="font-normal w-100 lg:hidden">
                                             <dt class="mt-2 text-sm font-medium text-green-900 ">Process Type: </dt>
