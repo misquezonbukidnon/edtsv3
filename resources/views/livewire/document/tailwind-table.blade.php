@@ -54,38 +54,110 @@
                                 all</button>
                         </div>
                         <table class="min-w-full divide-y divide-gray-300 table-fixed">
-                            <thead class="bg-gray-50">
+                            <thead x-data="{ activeSort: false }" class="bg-gray-50">
                                 <tr>
-                                    <th>
-                                        <button wire:click="sortBy('reference_id')" scope="col"
-                                            class="min-w-[12rem] py-3.5 pr-3 pl-6 text-left text-sm font-semibold text-gray-900">Ref.
-                                            #
+                                    <th scope="col" @click="activeSort =! activeSort"
+                                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+                                        <button wire:click="sortBy('reference_id'), activeSort = true" scope="col"
+                                            class="min-w-[12rem] flex text-left text-sm font-semibold text-gray-900">
+                                            REF. #
+                                            <svg x-show="!activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                                            </svg>
+
+                                            <svg x-show="activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+                                            </svg>
                                         </button>
                                     </th>
-                                    <th>
+                                    <th scope="col" @click="activeSort =! activeSort"
+                                        class="hidden lg:table-cell  py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                                         <button wire:click="sortBy('process_type_id')" scope="col"
-                                            class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                            class="min-w-[12rem] flex text-left text-sm font-semibold text-gray-900">
                                             Classification
+                                            <svg x-show="!activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                                            </svg>
+
+                                            <svg x-show="activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+                                            </svg>
                                         </button>
                                     </th>
-                                    <th>
+
+                                    <th scope="col" @click="activeSort =! activeSort"
+                                        class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                                         <button wire:click="sortBy('office_id')" scope="col"
-                                            class="lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                            class="min-w-[12rem] flex text-left text-sm font-semibold text-gray-900">
                                             End User
+                                            <svg x-show="!activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                                            </svg>
+
+                                            <svg x-show="activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+                                            </svg>
                                         </button>
                                     </th>
-                                    <th>
+                                    <th scope="col" @click="activeSort =! activeSort"
+                                        class="hidden lg:table-cell py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                                         <button wire:click="sortBy('purchase_description_id')" scope="col"
-                                            class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                            class="min-w-[12rem] flex text-left text-sm font-semibold text-gray-900">
                                             Description
+                                            <svg x-show="!activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                                            </svg>
+
+                                            <svg x-show="activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+                                            </svg>
                                         </button>
                                     </th>
-                                    <th>
+                                    <th scope="col" @click="activeSort =! activeSort"
+                                        class="hidden lg:table-cell py-3.5 pl-4  pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                                         <button wire:click="sortBy('status_id')" scope="col"
-                                            class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                            class="min-w-[12rem] flex text-left text-sm font-semibold text-gray-900">
                                             Status
+                                            <svg x-show="!activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h9m5-4v12m0 0l-4-4m4 4l4-4" />
+                                            </svg>
+
+                                            <svg x-show="activeSort" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-6 w-6 ml-3" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+                                            </svg>
                                         </button>
                                     </th>
+
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                         <button class="sr-only">Edit</button>
                                     </th>
@@ -115,18 +187,18 @@
                                         </dl>
                                     </td>
 
-                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                    <td class="hidden pl-6 py-4 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->proccessType->name }}</td>
-                                    <td class="px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                    <td class="pl-6 py-4 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->office->name }}</td>
-                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                    <td class="hidden pl-6 py-4 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->purchaseDescription->name }}
                                     </td>
-                                    <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                                    <td class="hidden pl-6 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->status->name }}
                                     </td>
-                                    <td class="flex px-3 py-4 text-sm text-gray-500 sm:table-cell">
-                                        <div class="flex">
+                                    <td class="flex h-50  px-3 py-4 text-sm text-gray-500 sm:table-cell ">
+                                        <div class="flex ">
                                             <a href="/document/edit/{{$document->id}}"
                                                 class="mr-1 text-indigo-600 hover:text-indigo-900"><svg
                                                     xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
