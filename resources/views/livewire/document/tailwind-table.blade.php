@@ -139,7 +139,7 @@
                                     <!-- Selected: "text-indigo-600", Not Selected: "text-gray-900" -->
                                     <td
                                         class="w-full py-4 pl-4 pr-3 mr-5 text-sm font-medium text-gray-900 max-w-0 sm:w-100 sm:max-w-75 sm:pl-6">
-                                        <div class="absolute inset-y-0 left-0 w-0.5 bg-indigo-600"></div>
+
                                         {{ $document->reference_id }}
                                         <dl class="font-normal w-100 lg:hidden">
                                             <dt class="mt-2 text-sm font-medium text-green-900 ">Process Type: </dt>
@@ -168,7 +168,8 @@
                                     </td>
                                     <td class="px-3 py-4  text-sm text-gray-500 sm:table-cell flex">
                                         <div class="flex">
-                                            <a href="#" class="text-indigo-600 hover:text-indigo-900 mr-1"><svg
+                                            <a href="/document/edit/{{$document->id}}"
+                                                class="text-indigo-600 hover:text-indigo-900 mr-1"><svg
                                                     xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
