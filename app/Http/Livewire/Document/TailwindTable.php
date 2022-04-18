@@ -25,6 +25,16 @@ class TailwindTable extends Component
         $this->documentArray = $query;
     }
 
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortAsc = !$this->sortAsc;
+        } else {
+            $this->sortAsc = true;
+        }
+        $this->sortField = $field;
+    }
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -44,6 +54,8 @@ class TailwindTable extends Component
             'documents' => Document::where(function ($query) {
                 $query->where('reference_id', 'like', '%' . $this->search . '%')
                 ->where('process_type_id', 'like', '%' . $this->filterByProcessType . '%');
+            })->when($this->sortField, function ($query) {
+                return $query->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
             })->paginate($this->paginateValue),
         ]);
     }

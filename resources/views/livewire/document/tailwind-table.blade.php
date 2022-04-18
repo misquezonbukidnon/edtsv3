@@ -56,76 +56,35 @@
                         <table class="min-w-full divide-y divide-gray-300 table-fixed">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col"
-                                        class="min-w-[12rem] py-3.5 pr-3 pl-6 text-left text-sm font-semibold text-gray-900">
-                                        Ref. #</th>
-                                    <th scope="col"
-                                        class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        <a href="#" class="inline-flex group">
-                                            Process
-                                            <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
-                                            <button
-                                                class="flex-none ml-2 text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
-                                                <!-- Heroicon name: solid/chevron-down -->
-                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </a>
+                                    <th>
+                                        <button wire:click="sortBy('reference_id')" scope="col"
+                                            class="min-w-[12rem] py-3.5 pr-3 pl-6 text-left text-sm font-semibold text-gray-900">Ref.
+                                            #
+                                        </button>
                                     </th>
-                                    <th scope="col"
-                                        class="  lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        <a href="#" class="inline-flex group">
+                                    <th>
+                                        <button wire:click="sortBy('process_type_id')" scope="col"
+                                            class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+                                            Classification
+                                        </button>
+                                    </th>
+                                    <th>
+                                        <button wire:click="sortBy('office_id')" scope="col"
+                                            class="lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                             End User
-                                            <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
-                                            <button
-                                                class="flex-none hidden w-auto h-auto ml-2 text-gray-900 bg-gray-200 rounded lg:table-cell group-hover:bg-gray-300">
-                                                <!-- Heroicon name: solid/chevron-down -->
-                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </a>
+                                        </button>
                                     </th>
-                                    <th scope="col"
-                                        class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        <a href="#" class="inline-flex group">
+                                    <th>
+                                        <button wire:click="sortBy('purchase_description_id')" scope="col"
+                                            class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                             Description
-                                            <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
-                                            <button
-                                                class="flex-none ml-2 text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
-                                                <!-- Heroicon name: solid/chevron-down -->
-                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </a>
+                                        </button>
                                     </th>
-                                    <th scope="col"
-                                        class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                        <a href="#" class="inline-flex group">
+                                    <th>
+                                        <button wire:click="sortBy('status_id')" scope="col"
+                                            class=" hidden lg:table-cell px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                             Status
-                                            <!-- Active: "bg-gray-200 text-gray-900 group-hover:bg-gray-300", Not Active: "invisible text-gray-400 group-hover:visible group-focus:visible" -->
-                                            <button
-                                                class="flex-none ml-2 text-gray-900 bg-gray-200 rounded group-hover:bg-gray-300">
-                                                <!-- Heroicon name: solid/chevron-down -->
-                                                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                    <path fill-rule="evenodd"
-                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </a>
+                                        </button>
                                     </th>
                                     <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
                                         <button class="sr-only">Edit</button>
@@ -166,18 +125,18 @@
                                     <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">
                                         {{ $document->status->name }}
                                     </td>
-                                    <td class="px-3 py-4  text-sm text-gray-500 sm:table-cell flex">
+                                    <td class="flex px-3 py-4 text-sm text-gray-500 sm:table-cell">
                                         <div class="flex">
                                             <a href="/document/edit/{{$document->id}}"
-                                                class="text-indigo-600 hover:text-indigo-900 mr-1"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                class="mr-1 text-indigo-600 hover:text-indigo-900"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                 </svg>
                                             </a>
                                             <a href="#" class="text-indigo-600 hover:text-indigo-900">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
